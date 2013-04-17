@@ -1,0 +1,198 @@
+
+<div class="clearfix">
+    <h3 class="header header-left">{{#i18n}}Current Plan Usage{{/i18n}}</h3>
+    <h3 class="header header-right">{{#i18n}}${{/i18n}}{{price}}</h3>
+</div>
+
+<div class="plan-usage-table-wrapper">
+
+    {{#planUsage}}
+    <table class="table table-striped table-bordered">
+        <tbody>
+            {{#player}}
+            <tr>
+                <td>{{#i18n}}Players{{/i18n}}</td>
+                <td><div class="progress plan-progress"><div class="bar" style="width:{{percent}}%;"></div></div></td>
+                <td>{{used}}/{{total}}</td>
+            </tr>
+            {{/player}}
+            {{#video}}
+            <tr>
+                <td>{{#i18n}}Videos{{/i18n}}</td>
+                <td><div class="progress plan-progress"><div class="bar" style="width:{{percent}}%;"></div></div></td>
+                <td>{{used}}/{{total}}</td>
+
+            </tr>
+            {{/video}}
+            {{#product}}
+            <tr>
+                <td>{{#i18n}}Products{{/i18n}}</td>
+                <td><div class="progress plan-progress"><div class="bar" style="width:{{percent}}%;"></div></div></td>
+                <td>{{used}}/{{total}}</td>
+
+            </tr>
+            {{/product}}
+            {{#transactions}}
+            <tr>
+                <td>{{#i18n}}Transactions{{/i18n}}</td>
+                <td><div class="progress plan-progress"><div class="bar" style="width:{{percent}}%;"></div></div></td>
+                <td>{{used}}/{{total}}</td>
+
+            </tr>
+            {{/transactions}}
+            <!-- PLM-1341
+            {{#view}}
+            <tr>
+                <td>{{#i18n}}Views{{/i18n}}</td>
+                <td><div class="progress plan-progress"><div class="bar" style="width:{{percent}}%;"></div></div></td>
+                <td>{{used}}/{{total}}</td>
+
+            </tr>
+            {{/view}}
+            -->
+            <!-- PLM-1133
+            {{#storage}}
+            <tr>
+                <td>Storage</td>
+                <td><div class="progress plan-progress"><div class="bar" style="width:{{percent}}%;"></div></div></td>
+                <td>{{used}}GB/{{total}}GB</td>
+
+            </tr>
+            {{/storage}}
+            {{#bandwidth}}
+            <tr>
+                <td>Bandwidth</td>
+                <td><div class="progress plan-progress"><div class="bar" style="width:{{percent}}%;"></div></div></td>
+                <td>{{used}}GB/{{total}}GB</td>
+
+            </tr>
+            {{/bandwidth}}
+            -->
+        </tbody>
+    </table>
+    {{/planUsage}}
+
+
+
+
+
+
+
+
+
+
+    <!--<table class="table">-->
+        <!--<tbody class="plan-usage-table">-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--<span class="bold">&lt;!&ndash; <i class="icon-shopping-cart"></i> &ndash;&gt; Stores</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<div class="progress plan-progress">-->
+                    <!--<div class="bar" style="width: 40%;"></div>-->
+                <!--</div>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<span class="badge badge-info">{{planUsage.store.used}}/{{planUsage.store.total}}</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<a href="#"> View </a>/-->
+                <!--<a href="#"> Edit stores </a>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--<span class="bold">&lt;!&ndash; <i class="icon-list"></i> &ndash;&gt; Containers</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<div class="progress plan-progress">-->
+                    <!--<div class="bar" style="width: 40%;"></div>-->
+                <!--</div>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<span class="badge badge-info">{{planUsage.player.used}}/{{planUsage.player.total}}</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<a href="#"> View </a>/-->
+                <!--<a href="#"> Edit Containers</a>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--<span class="bold">&lt;!&ndash; <i class="icon-film"></i> &ndash;&gt; Videos</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<div class="progress plan-progress">-->
+                    <!--<div class="bar" style="width: 20%;"></div>-->
+                <!--</div>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<span class="badge badge-info">{{planUsage.video.used}}/{{planUsage.video.total}}</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<a href="#"> View </a>/   -->
+                <!--<a href="#"> Edit Media</a>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--<span class="bold">&lt;!&ndash; <i class="icon-tags"></i> &ndash;&gt; Products</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<div class="progress plan-progress">-->
+                    <!--<div class="bar" style="width: 20%;"></div>-->
+                <!--</div>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<span class="badge badge-info">{{planUsage.product.used}}/{{planUsage.product.total}}</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<a href="#"> View </a>/-->
+                <!--<a href="#"> Edit Products</a>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--<span class="bold">&lt;!&ndash; <i class="icon-barcode"></i> &ndash;&gt; Transactions</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<div class="progress progress-success plan-progress">-->
+                    <!--<div class="bar" style="width: 20%;"></div>-->
+                <!--</div>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<span class="badge badge-info">{{planUsage.transactions.used}}/{{planUsage.transactions.total}} per month</span>-->
+            <!--</td>-->
+            <!--<td></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--<span class="bold">&lt;!&ndash; <i class="icon-hdd"></i> &ndash;&gt; Storage</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<div class="progress progress-success plan-progress">-->
+                    <!--<div class="bar" style="width: 2%;"></div>-->
+                <!--</div>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<span class="badge badge-info">{{planUsage.storage.used}}MB /{{planUsage.storage.total}}GB total</span>-->
+            <!--</td>-->
+            <!--<td></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>-->
+                <!--<span class="bold">&lt;!&ndash; <i class="icon-retweet"></i> &ndash;&gt; Bandwith</span>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<div class="progress progress-success plan-progress">-->
+                    <!--<div class="bar" style="width: 10%;"></div>-->
+                <!--</div>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<span class="badge badge-info">{{planUsage.bandwidth.used}}MB /{{planUsage.bandwidth.total}}GB per month</span>-->
+            <!--</td>-->
+            <!--<td></td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+</div>

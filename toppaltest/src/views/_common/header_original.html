@@ -1,0 +1,79 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <title>jQuery plugin: Tablesorter 2.0</title>
+    <link rel="stylesheet" href="js/lib/tablesorter/docs/css/jq.css" type="text/css" media="print, projection, screen" />
+
+    <link rel="stylesheet" href="js/lib/tablesorter/themes/blue/style.css" type="text/css" media="print, projection, screen" />
+
+    <script type="text/javascript" src="js/lib/tablesorter/jquery-latest.js"></script>
+
+    <script type="text/javascript" src="js/lib/tablesorter/jquery.tablesorter.js"></script>
+
+
+    <!--<script type="text/javascript" src="js/chili/chili-1.8b.js"></script>-->
+
+    <script type="text/javascript" src="js/lib/tablesorter/docs/js/docs.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $("#tablesorter-demo").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
+            $("#options").tablesorter({sortList: [[0,0]], headers: { 3:{sorter: false}, 4:{sorter: false}}});
+        });
+    </script>
+
+
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+
+
+
+
+    <!--&lt;!&ndash; Check my fly STYLE &ndash;&gt;-->
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/ssm.css" rel="stylesheet" media="screen">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!--&lt;!&ndash; Third-party JS includes &ndash;&gt;-->
+    <!--&lt;!&ndash;<script src="//code.jquery.com/jquery-latest.min.js"></script>&ndash;&gt;-->
+
+  <!---->
+    <!--&lt;!&ndash;-->
+    <!--Have had issues in the past with jquery > 1.7.2 and IE 9 layout.  Use below if problems come back.-->
+    <!--//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js-->
+    <!--&ndash;&gt;-->
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/mustache.min.js"></script>
+    <script src="js/lib/jquery.ba-hashchange.min.js"></script>
+    <script src="js/lib/jwplayer.js"></script>
+
+
+
+
+
+    <!--&lt;!&ndash;<script src="js/lib/jwplayer.html5.js"></script>&ndash;&gt;-->
+
+    <!-- Cinsay JS Includes -->
+    <script src="js/cinsay/init.js"></script>
+    <script src="js/cinsay/logger.js"></script>
+    <script src="js/cinsay/util.js"></script>
+    <script src="js/cinsay/ajax.js"></script>
+    <script src="js/cinsay/fields.js"></script>
+    <script src="js/cinsay/loadPartial.js"></script>
+    <script src="js/cinsay/mustache.js"></script>
+    <script src="js/cinsay/product.edit.js"></script>
+    <script src="js/cinsay/custom-ui.js"></script>
+    <script src="js/cinsay/slidePane.js"></script>
+    <script src="js/cinsay/addThisShare.js"></script>
+
+</head>
+
+<body id="body">
+
+{{^blank}}
+{{> _common/navbar}}
+{{/blank}}

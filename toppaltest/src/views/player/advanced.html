@@ -1,0 +1,89 @@
+{{#player}}
+<h3 class="header header-full">{{#i18n}}Advanced Settings{{/i18n}}</h3>
+<form class="form-horizontal" id="advancedform">
+    <div id="alert-wrapper" style="opacity:0" data-asset="flowbackgroundImage">
+        <div class="alert" style="opacity:0" data-asset="flowbackgroundImage"></div>
+    </div>
+    <div class="control-group">
+        <span class="span5">{{#i18n}}Limit each product to be in shopping cart only once.{{/i18n}}</span>
+        <input id="limitProductQuantity" type="checkbox" class="switch-style-checkbox" {{#playerConfiguration.limitProductQuantityPurchase}}checked{{/playerConfiguration.limitProductQuantityPurchase}}>
+    </div>
+
+    <div class="control-group">
+        <span class="span5">{{#i18n}}Limit each consumer to checkout only once.{{/i18n}}</span>
+        <input id="limitNumberOfPurchases" type="checkbox" class="switch-style-checkbox" {{#playerConfiguration.limitNumberOfPurchases}}checked{{/playerConfiguration.limitNumberOfPurchases}}>
+    </div>
+
+    <div class="control-group">
+        <span class="span5">{{#i18n}}Pause video when overlay is presented to consumer.{{/i18n}}</span>
+        <input id="stopVideoOnOverlay" type="checkbox" class="switch-style-checkbox" {{#playerConfiguration.stopVideoOnOverlayTriggers}}checked{{/playerConfiguration.stopVideoOnOverlayTriggers}}>
+    </div>
+
+
+    <legend></legend>
+
+    <div class="control-group">
+        <label class="control-label" for="affiliatetrackingurl">{{#i18n}}Affiliate Tracking Link{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-block-level validate-url-cyrillic" id="affiliatetrackingurl" name="affiliatetrackingurl" value="{{playerConfiguration.affiliateTrackingUrl}}">
+            <!-- <i class="icon-chevron-up"></i> <small>Please for more information click here. <a href="#">More Info.</a></small> -->
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="buynowtext">{{#i18n}}Buy Now Text{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-block-level" id="buynowtext" name="buynowtext" maxlength="12" value="{{playerConfiguration.buyNowText}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="takeactiontext">{{#i18n}}Take Action Text{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-block-level" id="takeactiontext" name="takeactiontext" maxlength="12" value="{{playerConfiguration.takeActionText}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="thankyoulink">{{#i18n}}Optional Thank You Page Link{{/i18n}}</label>
+        <div class="controls">
+            <input type="url" class="input-block-level validate-url-cyrillic" id="thankyoulink" name="thankyoulink" value="{{purchaseRedirectUrl}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="endvideolink">{{#i18n}}Optional End of Video Link{{/i18n}}</label>
+        <div class="controls">
+            <input type="url" class="input-block-level validate-url-cyrillic" id="endvideolink" name="endvideolink" value="{{endOfPlayRedirectUrl}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="player_locale">{{#i18n}}Specific Locale{{/i18n}}</label>
+        <div class="controls">
+            <select id="player_locale" name="player_locale" required>
+                <option value="en_US">{{#i18n}}English (United States){{/i18n}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group" style="display:inline-block;">
+        <label class="control-label" for="flowbackgroundImage">{{#i18n}}Advanced flow image (3Mb limit){{/i18n}}: <span style="color: #D40707; font-weight:bold;">*</span></label>
+        <div class="controls">
+            <a class="btn file-upload">{{#i18n}}Select File{{/i18n}}</a>
+            <input type="file" id="flowbackgroundImage" name="flowbackgroundImage" class="btn file-upload infologo" accept="image/*"
+                   data-asset="flowbackgroundImage"
+                    />
+            <!--<a class="btn">Select File from Library</a>-->
+            <a href="#" class="file-preview" onclick="popImageLightbox(this)" data-image="{{defaultFlowBackgroundImage}}">{{#i18n}}Preview{{/i18n}}</a>
+            <input type="hidden" class="input-block-level infologo" id="defaultFlowBackgroundImage" name="defaultFlowBackgroundImage" placeholder="flowbackgroundImage url" accept="image/*"
+                   value="{{defaultFlowBackgroundImage}}"
+                   data-id="flowbackgroundImage"
+                   data-asset="flowbackgroundImage"
+                   data-source="{{defaultFlowBackgroundImage}}"
+                   data-image="{{defaultFlowBackgroundImage}}" />
+            <br/>
+            <progress style="opacity:0" data-asset="flowbackgroundImage" min="0" value="" max="100" ></progress>
+            <span class='progress-label flowbackgroundImage' data-asset="flowbackgroundImage" style="opacity:0"></span>
+            <i class="icon-remove upload-cancel flowbackgroundImage" data-asset="flowbackgroundImage" data-dismiss="flowbackgroundImage" style="opacity:0"></i>
+            <div> </div>
+            <div> </div>
+        </div>
+    </div>
+</form>
+{{/player}}

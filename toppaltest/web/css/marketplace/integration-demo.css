@@ -1,0 +1,109 @@
+.issue-solved {
+    text-decoration: line-through;
+}
+
+.ui-widget {
+    font-size: 10px;
+    font-family: 'Trebuchet MS', Helvetica, Arial, Verdana, sans-serif;
+}
+
+ul.ui-widget {
+    font-size: 12px;
+}
+
+.ui-autocomplete {
+    cursor: default;
+}
+
+.ui-autocomplete-item-desc {
+    color: graytext;
+    font-size: .9em;
+}
+
+.ui-state-highlight {
+    height: 18px;
+    width: 48px;
+    border: 1px dashed lightGrey;
+}
+
+#category-input {
+    width: 381px;
+    margin-bottom: 2px;
+    margin-right: 3px;
+    border: 1px solid #ddd;
+}
+
+#category-input.input-error {
+    border-color: red;
+}
+
+#add-category-button {
+    border: 1px solid #ddd;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+.category-list-info-message {
+    display: none;
+    font-size: 12px;
+    font-family: 'Trebuchet MS', Helvetica, Arial, Verdana, sans-serif;
+    width: 398px;
+    border: 1px solid #95a486;
+    color: #3d6611;
+    background-color: #eff5ea;
+    padding: 2px 2px 2px 4px;
+    margin-bottom: 2px;
+}
+
+.category-list-error-message {
+    display: none;
+    font-size: 12px;
+    font-family: 'Trebuchet MS', Helvetica, Arial, Verdana, sans-serif;
+    width: 398px;
+    border: 1px solid #f16048;
+    color: #df280a;
+    background-color: #faebe7;
+    padding: 2px 2px 2px 4px;
+    margin-bottom: 2px;
+}
+
+#tag-list-container {
+    margin: 1px 0 2px 0;
+    width: 400px;
+}
+
+#tag-list-container .ui-state-default {
+    cursor: default;
+}
+
+#tag-list-container .ui-sortable-helper {
+    cursor: move;
+}
+
+.ui-autocomplete.ui-corner-all,
+.ui-autocomplete > .ui-menu-item > .ui-corner-all {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.ui-autocomplete > .ui-menu-item > a {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: -1px;
+}
+
+.ui-autocomplete > .ui-menu-item:last-child > a {
+    border-bottom: 0;
+}
+
+.ui-autocomplete > .ui-menu-item > a.ui-state-hover {
+    border: 1px solid #fff;
+}
+
+.ui-autocomplete {
+    max-height: 612px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

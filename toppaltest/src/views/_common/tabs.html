@@ -1,0 +1,58 @@
+
+    <!-- page tabs -->
+    <div class="inner-content">
+
+        <div class="sub-nav-wrapper">
+
+            <div class="sub-nav second-level-fixed">
+
+                <ul class="nav nav-tabs nose tab clearfix">
+                    {{#tabs}}
+                    <li class="{{active}}"><a class="tab-nav-a" href="#{{slug}}" id="{{slug}}-tab" data-toggle="tab">{{title}}</a></li>
+                    {{/tabs}}
+                    {{^hideSaveButton}}
+                    <button type="button" class="btn btn-success pull-right">{{#i18n}}Save{{/i18n}}</button>
+                    {{/hideSaveButton}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    {{#stats}}
+        <div id="date-picker-container">
+            <div class="date-picker">
+                <input id="date-from" value="01/01/2010"  class="inputDates" placeholder="{{#i18n}}From...{{/i18n}}"/>
+            </div>
+
+            <div class="date-picker">
+                <input id="date-to" value="" class="inputDates" placeholder="{{#i18n}}To...{{/i18n}}"/>
+            </div>
+        </div>
+
+        <div style="clear:both;"></div>
+
+        <script type="text/javascript">
+            $(function(){
+                $('.inputDates').datepicker();
+            });
+        </script>
+    {{/stats}}
+    <!-- end page tabs -->
+
+    <div class="inner-content">
+        <div class="nav-level2">
+            <div id="alert-wrapper" style="display:none">
+                <div class="alert">
+                    <i type="button" class="close icon-remove margin-icon" data-dismiss="alert"></i>
+                    <span>{{#i18n}}ignore me. this is a test notice{{/i18n}}</span>
+                </div>
+            </div>
+            <div class="tab-content">
+                {{#tabs}}
+                <div class="tab-pane {{active}}" id="{{slug}}"><div class="loading-wrapper"><div class="loading-image"></div>{{#i18n}}loading{{/i18n}} {{title}}</div></div>
+                {{/tabs}}
+                {{{content}}}
+            </div>
+        </div>
+    </div>

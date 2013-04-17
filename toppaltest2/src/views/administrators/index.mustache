@@ -1,0 +1,100 @@
+<div style="width: 80%!important;float: left;margin-top: 20px;">
+    <h3 class="header header-full">{{#i18n}}Adming User List{{/i18n}}</h3>
+    <div class="admin-user-list-add">
+        <a href="administrators/add" class="btn btn-large open-pane"
+           data-json="blank.json"
+           data-template="administrators/add"
+           data-id="sliding-content"
+           data-callback="">+ add new</a>
+    </div>
+
+    <table id="" class="table table-striped table-bordered">
+        <tr>
+            <td>
+                <div class="pull-left clearfix display-table">
+                    <h5 class="admin-user-list-item-title display-table-cell">
+                        Last Name
+                    </h5>
+                </div>
+            </td>
+            <td><div class="pull-left clearfix display-table">
+                <h5 class="admin-user-list-item-title display-table-cell">
+                    Firts Name
+                </h5>
+            </div> </td>
+            <td><div class="pull-left clearfix display-table">
+                <h5 class="admin-user-list-item-title display-table-cell">
+                    Login
+                </h5>
+            </div></td><td><div class="pull-left clearfix display-table">
+            <h5 class="admin-user-list-item-title display-table-cell">
+                Email
+            </h5>
+        </div></td><td><div class="pull-left clearfix display-table">
+            <h5 class="admin-user-list-item-title display-table-cell">
+                Channel
+            </h5>
+        </div></td><td><div class="pull-left clearfix display-table">
+            <h5 class="admin-user-list-item-title display-table-cell">
+                Action
+            </h5>
+        </div></td>
+        </tr>
+
+        {{#allUser}}
+        <tr>
+            <td><div class="pull-left clearfix display-table">
+                <h5 class="admin-user-list-item-title display-table-cell">
+                    {{#i18n}}{{lastname}}{{/i18n}}
+                </h5>
+            </div>
+            </td>
+            <td> <div class="pull-left clearfix display-table">
+                <h5 class="admin-user-list-item-title display-table-cell">
+                    {{#i18n}}{{firstname}}{{/i18n}}
+                </h5>
+
+            </div></td>
+            <td><div class="pull-left clearfix display-table">
+                <h5 class="admin-user-list-item-title display-table-cell">
+                    {{#i18n}}{{login}}{{/i18n}}
+                </h5>
+            </div></td>
+            <td><div class="pull-left clearfix display-table">
+                <h5 class="admin-user-list-item-title display-table-cell">
+                    {{#i18n}}{{email}}{{/i18n}}
+                </h5>
+            </div></td>
+            <td><div class="pull-left clearfix display-table">
+                <h5 class="admin-user-list-item-title display-table-cell">
+                    {{#i18n}}{{channel}}{{/i18n}}
+                </h5>
+            </div></td>
+            <td><div class="btn-group unstyled pull-right ">
+                <a class="btn" href="edit_{{guid}}" onclick="alert('{{guid}}')"><i class="icon-pencil"></i> {{#i18n}}Edit{{/i18n}}</a>
+                <a class="btn" href="#" onclick="deletePlayer('{{guid}}', '{{firstname}}')"><i class="icon-remove"></i> {{#i18n}}Delete{{/i18n}}</a>
+            </div></td>
+        </tr>
+        {{/allUser}}
+    </table>
+</div>
+
+<!--<ul class="unstyled admin-user-list">-->
+<!--&lt;!&ndash;<li>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="admin-user-list-add clearfix">&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="btn btn-large">+ add new</a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
+<!--{{#allUser}}-->
+<!--<li id="admin_user_list_item_{{guid}}">-->
+<!--<div class="admin-user-list-item clearfix">-->
+
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!--</div>-->
+<!--</li>-->
+<!--{{/allUser}}-->
+<!--</ul>-->

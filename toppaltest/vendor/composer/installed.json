@@ -1,0 +1,193 @@
+[
+    {
+        "name": "mustache/mustache",
+        "version": "dev-dev",
+        "version_normalized": "dev-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bobthecow/mustache.php",
+            "reference": "12d6884b4b14fe0287cffcb1eff184477cc9d776"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/12d6884b4b14fe0287cffcb1eff184477cc9d776",
+            "reference": "12d6884b4b14fe0287cffcb1eff184477cc9d776",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.4"
+        },
+        "time": "2013-01-27 00:48:35",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Mustache": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Justin Hileman",
+                "email": "justin@justinhileman.info",
+                "homepage": "http://justinhileman.com"
+            }
+        ],
+        "description": "A Mustache implementation in PHP.",
+        "homepage": "https://github.com/bobthecow/mustache.php",
+        "keywords": [
+            "mustache",
+            "templating"
+        ]
+    },
+    {
+        "name": "kriswallsmith/buzz",
+        "version": "dev-travis",
+        "version_normalized": "dev-travis",
+        "source": {
+            "type": "git",
+            "url": "http://github.com/kriswallsmith/Buzz.git",
+            "reference": "d6f6851ce8da88453dca5a0d4210118c9b2197a1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d6f6851ce8da88453dca5a0d4210118c9b2197a1",
+            "reference": "d6f6851ce8da88453dca5a0d4210118c9b2197a1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*"
+        },
+        "suggest": {
+            "ext-curl": "*"
+        },
+        "time": "2013-01-16 04:36:44",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Buzz": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kris Wallsmith",
+                "email": "kris.wallsmith@gmail.com",
+                "homepage": "http://kriswallsmith.net/"
+            }
+        ],
+        "description": "Lightweight HTTP client",
+        "homepage": "https://github.com/kriswallsmith/Buzz",
+        "keywords": [
+            "curl",
+            "http client"
+        ]
+    },
+    {
+        "name": "slim/slim",
+        "version": "2.2.0",
+        "version_normalized": "2.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/codeguy/Slim",
+            "reference": "2.2.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/codeguy/Slim/archive/2.2.0.zip",
+            "reference": "2.2.0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2012-12-13 02:15:50",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Slim": "."
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Josh Lockhart",
+                "email": "info@joshlockhart.com",
+                "homepage": "http://www.joshlockhart.com/"
+            }
+        ],
+        "description": "Slim Framework, a PHP micro framework",
+        "homepage": "http://github.com/codeguy/Slim",
+        "keywords": [
+            "microframework",
+            "rest",
+            "router"
+        ]
+    },
+    {
+        "name": "amazonwebservices/aws-sdk-for-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/amazonwebservices/aws-sdk-for-php.git",
+            "reference": "a1af6861d6ad02ec08c07687f591e192b90a028c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/amazonwebservices/aws-sdk-for-php/zipball/a1af6861d6ad02ec08c07687f591e192b90a028c",
+            "reference": "a1af6861d6ad02ec08c07687f591e192b90a028c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "time": "2013-02-21 22:43:01",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "authentication/",
+                "extensions/",
+                "lib/",
+                "services/",
+                "utilities/",
+                "sdk.class.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Amazon Web Services",
+                "homepage": "http://aws.amazon.com"
+            }
+        ],
+        "description": "AWS SDK for PHP",
+        "homepage": "http://aws.amazon.com/sdkforphp/",
+        "keywords": [
+            "amazon",
+            "aws",
+            "dynamodb",
+            "ec2",
+            "s3",
+            "sdk"
+        ]
+    }
+]

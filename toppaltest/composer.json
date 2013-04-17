@@ -1,0 +1,9 @@
+{
+    "require": {
+        "slim/slim": "2.*",
+        "mustache/mustache": "dev-dev",
+        "kriswallsmith/buzz": "dev-travis",
+        "amazonwebservices/aws-sdk-for-php":"*"
+    },
+    "minimum-stability": "dev"
+}

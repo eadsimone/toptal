@@ -1,0 +1,16 @@
+
+SetEnv BASE_URL http://services.stag.cinsay.com
+SetEnv PUBLIC_KEY cinsay99Public
+SetEnv PRIVATE_KEY cinsay99Private
+SetEnv CACHE_SB 1
+
+#SetEnv CINSAY_SERVICE_BUS_URL http://internalservices.int.cinsay.com/rest/
+#SetEnv CINSAY_SERVICE_BUS_ANALYTICS_URL http://prvs.int.cinsay.com:8080/stats/api/
+
+SetEnv CINSAY_SERVICE_BUS_URL http://internalservices.stag.cinsay.com/rest/
+SetEnv CINSAY_SERVICE_BUS_ANALYTICS_URL http://prvs.stag.cinsay.com:8080/stats/api/
+SetEnv CINSAY_SERVICE_BUS_PUBLIC_API_KEY cinsay99Public
+SetEnv CINSAY_SERVICE_BUS_PRIVATE_API_KEY cinsay99Private
+SetEnv CINSAY_CLIENT_ID 4879
+SetEnv CINSAY_DEFAULT_LANG en
+SetEnv CINSAY_TOOLTIPS on

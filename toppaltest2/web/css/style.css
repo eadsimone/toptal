@@ -1,0 +1,234 @@
+@CHARSET "UTF-8";
+
+body{
+    background-color:#ddd;
+}
+
+
+/*------------------------------------
+        TOP NAVIGATION BAR
+-------------------------------------*/
+.nav-bar-wrapper{
+    height:70px;
+    width:100%;
+}
+.nav-bar{
+    position:fixed;
+    z-index:4;
+    padding:10px 15px;
+    height:70px;
+    width:100%;
+    min-width:1020px;
+    background: #545454;
+    background: -moz-linear-gradient(top, #545454 0%, #393939 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#545454), color-stop(100%,#393939));
+    background: -webkit-linear-gradient(top, #545454 0%,#393939 100%);
+    background: -o-linear-gradient(top, #545454 0%,#393939 100%);
+    background: -ms-linear-gradient(top, #545454 0%,#393939 100%);
+    background: linear-gradient(to bottom, #545454 0%,#393939 100%);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    -o-box-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    -ms-box-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    -moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom:0;
+}
+.top-bar-nav{
+    margin:13px;
+}
+.top-bar-nav > li{
+    display:inline;
+    display:inline-block;
+}
+.top-bar-nav > li > a{
+    display:block;
+    padding:0 15px;
+    color:#fff;
+    text-transform:uppercase;
+    font-size:12px;
+}
+.top-bar-nav > li > a:hover{
+    text-decoration: none;
+    color:#ddd;
+}
+.top-bar-nav > li > a.active{
+    font-weight: bold;
+}
+.top-bar-nav-caret{
+    margin-top:7px;
+    margin-left:5px;
+    border-color: white transparent;
+}
+.logo {
+    height: 50px;
+    width: 51px;
+    background: url(/web/images/logo.png);
+    display: block;
+}
+
+/*-------------------------------------------------------
+       BOX ON LOGIN/LOGOUT/ETC PAGES
+--------------------------------------------------------*/
+.blank-box{
+    width:500px;
+    min-height:20px;
+    background-color:white;
+    box-shadow:0 1px 4px rgba(0,0,0,0.4);
+    margin:100px auto;
+    padding:30px;
+}
+
+/*.ssm-log-box{*/
+    /*background-color:white;*/
+    /*box-shadow:0 1px 4px rgba(0,0,0,0.4);*/
+    /*margin:100px auto;*/
+    /*padding:30px;*/
+/*}*/
+/*.welcome-title {*/
+    /*text-align: center;*/
+    /*padding: 20px;*/
+    /*margin:0;*/
+/*}*/
+/*.ssm-dashboard-block {*/
+    /*width:25%;*/
+    /*float: left;*/
+    /*display: block;*/
+    /*margin: 0 0 20px;*/
+    /*border-right: 1px solid #eeeeee;*/
+/*}*/
+/*.ssm-dashboard-last {*/
+    /*border: none;*/
+/*}*/
+/*.ssm-dashboard-block h2 {*/
+    /*font-size: 20px;*/
+    /*text-align: center;*/
+/*}*/
+/*.ssm-dashboard-block p {*/
+    /*padding:15px;*/
+/*}*/
+/* NEEDS DELETED WHEN OPTIMIZED */
+/*#product-left-side .preview-btn{*/
+    /*display:none;*/
+/*}*/
+/*.required span,{*/
+    /*color: #D40707 !important;*/
+    /*font-weight: bold !important;*/
+/*}*/
+/*.error {*/
+    /*color: #D40707;*/
+
+/*}*/
+
+/*----------------------------------------------------
+MEDIA LISTS (PLAYER LIST, PRODUCT LIST, VIDEO LIST )
+-----------------------------------------------------*/
+.admin-user-list > li{
+    border-bottom:1px solid #ddd;
+}
+.admin-user-list > li:nth-child(even){
+    background-color:#f7f7f7;
+}
+.admin-user-list > li:first-child{
+    border-top:1px solid #ddd;
+}
+.admin-user-list-item{
+    padding:20px;
+    position:relative;
+}
+.admin-user-list-item-img{
+    width:96px;
+}
+.admin-user-list-add{
+    padding-bottom:15px;
+}
+.admin-user-list-item-nav{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -15px;
+}
+.admin-user-list-item-nav > li{
+    display:inline;
+    display:inline-block;
+    padding-left:15px;
+}
+.admin-user-list-item-nav > li > a{
+    color:#000;
+}
+.admin-user-list-item-title{
+    padding-left:15px;
+    width:280px;
+    font-size: 18px;
+    font-weight:300;
+}
+.admin-user-list-item-subtitle{
+    font-size:13px;
+}
+.loading-wrapper {
+    margin:20px;
+}
+.loading-image {
+    width:30px;
+    height: 30px;
+    background: url(/web/images/loading.gif);
+    display: inline-block;
+    margin-right:10px;
+}
+
+/*-------------------------------------------------------
+          MEDIA LIST FOR SIDEBAR STYLES
+--------------------------------------------------------*/
+
+
+.admin-user-item-sidebar-table{
+    width:100%;
+}
+.admin-user-item-sidebar-image{
+    width:35px;
+}
+.admin-user-item-sidebar-image img{
+    width:30px;
+}
+.admin-user-item-sidebar-title-wrapper{
+    vertical-align:middle;
+}
+.admin-user-item-sidebar-title{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    width:160px;
+}
+.admin-user-item-sidebar-btn-group{
+    width:50px;
+}
+
+/*------------------------------------------------------
+           SWITCH STYLES FOR REPLACED CHECKBOXES
+-------------------------------------------------------*/
+.checkbox-switch{
+    display:inline-block;
+    position:relative;
+    width:105px;
+    height:30px;
+    overflow:hidden;
+    border-radius:4px;
+    cursor:pointer;
+}
+.checkbox-switch-background{
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:161px;
+    height:30px;
+    background-image:url(../images/checkbox-switch.png);
+}
+.checkbox-switch-mask{
+    background-image:url(../images/checkbox-switch-mask.png);
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:105px;
+    height:30px;
+}

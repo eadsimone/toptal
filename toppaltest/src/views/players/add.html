@@ -1,0 +1,60 @@
+<h3>{{#i18n}}Add Player{{/i18n}}</h3>
+
+<!--
+<h4>Generated Form</h4>
+
+<form class="form-horizontal" style="clear:both;float;left;">
+    <div class="control-group">
+        <label class="control-label" for="{{playerName.id}}">{{playerName.label}}</label>
+        <div class="controls">
+            {{{playerName.field}}}
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="{{playerDesc.id}}">{{playerDesc.label}}</label>
+        <div class="controls">
+            {{{playerDesc.field}}}
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" style="margin:9px 0" for="{{btnAddMedia.id}}">{{btnAddMedia.label}}</label>
+        <div class="controls">
+            {{{btnAddMedia.field}}}
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" style="margin:4px 0" for="{{btnAddProducts.id}}">{{btnAddProducts.label}}</label>
+        <div class="controls">
+            {{{btnAddProducts.field}}}
+        </div>
+    </div>
+
+</form>
+
+<h4>Hard-coded (Original) Form</h4>
+-->
+
+<form class="form-horizontal" id="saveNewPlayerForm" style="clear:both;float;left;">
+    <div class="control-group">
+        <label class="control-label" for="add_player_name">{{#i18n}}Name{{/i18n}}<span style="color: #D40707; font-weight:bold;">*</span></label>
+        <div class="controls">
+            <input type="text" class="input-block-level pname required" id="add_player_name" name="add_player_name" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="add_player_description">{{#i18n}}Description{{/i18n}}</label>
+        <div class="controls">
+            <textarea placeholder="{{#i18n}}Player Description{{/i18n}}" maxlength="255" rows="4" class="input-block-level" id="add_player_description" name="add_player_description"></textarea>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <button type="button" class="btn btn-success" id="saveNewPlayerButton" onclick="saveNewPlayer();">{{#i18n}}Save Player{{/i18n}}</button>
+        </div>
+    </div>
+</form>

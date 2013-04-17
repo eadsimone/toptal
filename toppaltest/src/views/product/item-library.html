@@ -1,0 +1,21 @@
+<li id="{{guid}}" style="display:none;">
+    <div class="ssm-media-list-item clearfix">
+        <div class="pull-left clearfix display-table"><a class="thumbnail pull-left"><img
+                class="ssm-media-list-item-img" src="{{image}}"></a><h4
+                class="ssm-media-list-item-title display-table-cell">{{title}}<br><span
+                class="ssm-media-list-item-subtitle">{{type}}</span></h4></div>
+        <div class="unstyled pull-right ssm-media-list-item-nav btn-group">
+            <a class="btn open-pane"
+               data-json="getProduct.php?vGuid={{guid}}"
+               data-template="product/edit.html"
+               data-id="sliding-content-media"><i class="icon-pencil"></i> {{#i18n}}Edit{{/i18n}}</a>
+            <a class="btn move-to-summary" href="#"
+               data-destination="{{source}}"
+               data-source="{{destination}}"
+               data-type="{{type}}"
+               data-guid="{{guid}}"
+               data-image="{{image}}"
+               data-title="{{title}}"><i class="icon-plus"></i> {{#i18n}}Add to Player{{/i18n}}</a>
+        </div>
+    </div>
+</li>

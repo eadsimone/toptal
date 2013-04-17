@@ -1,0 +1,125 @@
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../../../web/js/cinsay/jquery.validate.js"></script>
+<script type="text/javascript" src="../../../web/js/cinsay/customvalidate.js"></script>
+{{#User}}
+<h3 class="header header-full">{{#i18n}}Edit User{{/i18n}}</h3>
+
+
+
+<form class="form-horizontal" id="billingInformationForm">
+    <div class="control-group">
+        <label class="control-label" for="address">{{#i18n}}First Name{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-xlarge required" id="address" name="address" value="{{firstname}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="city">{{#i18n}}Last Name{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-xlarge required" id="city" name="city" accept="" value="{{lastname}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="city">{{#i18n}}Login{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-xlarge required" id="city" name="city" accept="" value="{{login}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="city">{{#i18n}}Email{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-xlarge required" id="city" name="city" accept="" value="{{email}}">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="expiration_month">{{#i18n}}Channel Partner{{/i18n}}</label>
+        <div class="controls">
+            <select id="expiration_month" name="expiration_month">
+                {{#channel}}
+                <option value="{{channelPartnerGuid}}" {{#selected}}selected{{/selected}}>{{label}}</option>
+                {{/channel}}
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="expiration_year">{{#i18n}}Expiration Year{{/i18n}}</label>
+        <div class="controls">
+            <select id="expiration_year" name="expiration_year">
+                {{#ExpirationYear}}
+                <option {{#sel}}selected{{/sel}}>{{label}}</option>
+                {{/ExpirationYear}}
+            </select>
+        </div>
+        <input type="hidden" placeholder="" value="" name="expiration_date" id="expiration_date">
+        <input type="hidden" placeholder="" value="{{gateway_service_type}}" name="gateway_service_type" id="gateway_service_type">
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button type="button" id="AAacccountButton" name="acccountButton" class="btn btn-success pull-right" onclick="encripted();saveButtons.billing();">{{#i18n}}Save{{/i18n}}</button>
+
+        </div>
+    </div>
+</form>
+{{/User}}
+{{^User}}
+Problem with Data
+{{/User}}
+
+
+<!--<h3 class="header header-full">Billing Information</h3>-->
+
+<!--<div class="alert alert-info">To protect your financial data we require you to re-enter your credit card information as part of any updates on the Account Management pages.</div>-->
+
+<!--<form class="form-horizontal">-->
+    <!--<div class="control-group">-->
+        <!--<label class="control-label" for="{{address.id}}">{{address.label}}</label>-->
+        <!--<div class="controls">-->
+            <!--{{{address.field}}}-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
+        <!--<label class="control-label" for="{{city.id}}">{{city.label}}</label>-->
+        <!--<div class="controls">-->
+            <!--{{{city.field}}}-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
+        <!--<label class="control-label" for="{{country.id}}">{{country.label}}</label>-->
+        <!--<div class="controls">-->
+                <!--{{{country.field}}}-->
+            <!--<input class="selected-value" value="{{Country.value}}" style="visibility:hidden"/>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
+        <!--<label class="control-label" for="{{state.id}}">{{state.label}}</label>-->
+        <!--<div class="controls">-->
+                <!--{{{state.field}}}-->
+            <!--<input class="selected-value" value="{{States.value}}" style="visibility:hidden"/>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
+        <!--<label class="control-label" for="{{zip.id}}">{{zip.label}}</label>-->
+        <!--<div class="controls">-->
+            <!--{{{zip.field}}}-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
+        <!--<label class="control-label" for="{{creditCard.id}}">{{creditCard.label}}</label>-->
+        <!--<div class="controls">-->
+            <!--{{{creditCard.field}}}-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
+        <!--<label class="control-label" for="{{ccw.id}}">{{ccw.label}}</label>-->
+        <!--<div class="controls">-->
+            <!--{{{ccw.field}}}-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
+        <!--<label class="control-label" for="expiration">Expiration</label>-->
+        <!--<div class="controls" style="padding-bottom: 10px;">-->
+            <!--{{{expMonth.field}}} {{{expYear.field}}}-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</form>-->

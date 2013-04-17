@@ -1,0 +1,70 @@
+<div class="main-content">
+    {{> _common/breadcrumb}}
+
+    <div class="inner-content">
+        <p>
+            <form style="width: 500px; margin-left: 100px;" id="search" method="post">
+                <div class="controls">
+                    <input type="text" class="input-large" style="height: 30px" name="searchFor" id="searchFor" placeholder="{{#i18n}}Search For{{/i18n}}" value="{{searchFor}}" required>
+                </div>
+
+                <div class="controls">
+                    <select id="searchFor" name="searchBy" required>
+                        <option value=""{{searchByBlank}}>{{#i18n}}Search By{{/i18n}}</option>
+                        <option value="name"{{searchByName}}>{{#i18n}}Name{{/i18n}}</option>
+                        <option value="email"{{searchByEmail}}>{{#i18n}}Email{{/i18n}}</option>
+                        <option value="playerGuid"{{searchByPlayerGuid}}>{{#i18n}}Player GUID{{/i18n}}</option>
+                    </select>
+                </div>
+
+                <div class="controls">
+                    <button type="submit" id="searchButton" name="searchButton" class="btn btn-success" onclick="saveButtons.search();">{{#i18n}}Search{{/i18n}}</button>
+                </div>
+            </form>
+            <hr>
+        </p>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Store Name</th>
+                    <th>Email</th>
+                    <th>Channel</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#searchResults}}
+                    <tr>
+                        <td>{{lastName}}</td>
+                        <td>{{firstName}}</td>
+                        <td>{{storeName}}</td>
+                        <td><a href="mailto:{{email}}">{{email}}</a></td>
+                        <td>{{channel}}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn" href="#" onclick="alert('client: {{clientGuid}}')"><span class="icon-pencil" style="font-size: 0; line-height: 0;">{{#i18n}}Client Login{{/i18n}}</span></a>
+                                <a class="btn" href="#" onclick="alert('superadmin: {{clientGuid}}')"><span class="icon-arrow-right" style="font-size: 0; line-height: 0;">{{#i18n}}Superadmin Login{{/i18n}}</span></a>
+                            </div>
+                        </td>
+                    </tr>
+                {{/searchResults}}
+
+                {{^hasSearchResults}}
+                    <tr>
+                        <td colspan="6">{{#i18n}}No results found.{{/i18n}}</td>
+                    </tr>
+                {{/hasSearchResults}}
+
+                {{^formSubmitted}}
+                    <tr>
+                        <td colspan="6">{{#i18n}}Please enter search criteria.{{/i18n}}</td>
+                    </tr>
+                {{/formSubmitted}}
+            </tbody>
+        </table>
+    </div>
+</div>

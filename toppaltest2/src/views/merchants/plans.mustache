@@ -1,0 +1,75 @@
+
+<div>
+    <div style="width: 100%!important; float: left;margin: 20px 0 0 90px;"><h3>Manage Account: {{storename}}</h3></div>
+    <div style="width: 20%!important; float: left;margin-top: 20px">{{> merchants/_sidenav}}</div>
+    <div style="width: 80%!important;float: left;margin-top: 20px">
+<h3 class="header">{{#i18n}}Change Plan{{/i18n}}</h3>
+<div class="plans-wrapper">
+
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                {{#plans}}
+                <th>{{name}}</th>
+                {{/plans}}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{#i18n}}Players{{/i18n}}</td>
+                {{#plans}}
+                <td>{{stores}}</td>
+                {{/plans}}
+            </tr>
+            <tr>
+                <td>{{#i18n}}Videos{{/i18n}}</td>
+                {{#plans}}
+                <td>{{videos}}</td>
+                {{/plans}}
+            </tr>
+            <tr>
+                <td>{{#i18n}}Products{{/i18n}}</td>
+                {{#plans}}
+                <td>{{products}}</td>
+                {{/plans}}
+            </tr>
+            <tr>
+                <td>{{#i18n}}Transactions{{/i18n}}</td>
+                {{#plans}}
+                <td>{{transaction}}</td>
+                {{/plans}}
+            </tr>
+            <tr>
+                <td>{{#i18n}}Storage{{/i18n}}</td>
+                {{#plans}}
+                <td>{{storage}}</td>
+                {{/plans}}
+            </tr>
+            <tr>
+                <td>{{#i18n}}Bandwidth{{/i18n}}</td>
+                {{#plans}}
+                <td>{{bandwidth}}</td>
+                {{/plans}}
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                {{#plans}}
+                <td><a class="btn btn-success btn-block" 
+                {{^selectable}}disabled{{/selectable}}{{#selectable}}onclick="upgradePlan('{{guid}}')"{{/selectable}}>
+                {{#currentPlan}}{{#i18n}}Current Plan{{/i18n}}{{/currentPlan}}{{^currentPlan}}{{#i18n}}Choose Plan{{/i18n}}{{/currentPlan}}</a></td>
+                {{/plans}}
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                {{#plans}}
+                <td>{{#i18n}}${{/i18n}}{{total}}</td>
+                {{/plans}}
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+        </div>
+    </div>

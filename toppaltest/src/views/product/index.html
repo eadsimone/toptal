@@ -1,0 +1,48 @@
+<div class="ssm-content-slide-wrapper">
+    <ul class="unstyled ssm-content-slide">
+        <li>
+            <div class="ssm-content-slide-left">
+                <h3 class="header header-full">{{#i18n}}Products in Library{{/i18n}}</h3>
+                <ul class="unstyled ssm-media-list">
+                    <li>
+                        <div class="ssm-media-list-add clearfix">
+                            <a class="btn btn-large open-pane"
+                                  data-json="GetProduct.json"
+                                  data-template="video/edit.html"
+                                  data-id="sliding-content"
+                                  data-callback="saveButtons.newProduct();"
+                                    >{{#i18n}}+ add new{{/i18n}}</a>
+                        </div>
+                    </li>
+
+                    {{#product}}
+                    <li>
+                        <div class="ssm-media-list-item clearfix">
+                            <div class="pull-left clearfix display-table">
+                                <a class="thumbnail pull-left"><img class="ssm-media-list-item-img" src="{{defaultItemVariant.medium.url}}"></a>
+                                <h4 class="ssm-media-list-item-title display-table-cell">{{name}}
+                                    <br><span style="font-size:13px;">{{typeName}}</span>
+                                </h4>
+                            </div>
+                            <ul class="unstyled pull-right ssm-media-list-item-nav">
+                                <li><a href="#"><i class="icon-pencil"></i> {{#i18n}}Edit{{/i18n}}</a></li>
+                                <li><a href="#"><i class="icon-remove"></i> {{#i18n}}Remove{{/i18n}}</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    {{/product}}
+
+                </ul>
+                <div>
+                    <p class="ssm-bottom-tip">Tip: <span class="muted">{{#i18n}}Add more media to your player for more exposure.{{/i18n}} </span>{{#i18n}}Need Help?{{/i18n}}</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="ssm-content-slide-right" style="display:none;">
+                <div class="btn btn-large close-pane">{{#i18n}}Go back{{/i18n}}</div>
+                <div class="sliding-content"></div>
+            </div>
+        </li>
+    </ul>
+</div>

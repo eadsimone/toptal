@@ -1,0 +1,43 @@
+
+                <h3 class="header header-full">{{#i18n}}Media in Library{{/i18n}}</h3>
+                <div class="ssm-media-list-add">
+                    <a class="btn btn-large open-pane"
+                        data-json="blank.json"
+                        data-template="video/add.html"
+                        data-id="sliding-content"
+                        data-callback="saveButtons.newVideo();">+ {{#i18n}}add new{{/i18n}}</a>
+                </div>
+                <ul class="unstyled ssm-media-list" id="media-left-side">
+
+                    {{#allVideos}}
+                    <li id="{{guid}}">
+                        <div class="ssm-media-list-item clearfix">
+                            <div class="pull-left clearfix display-table">
+                                <a class="thumbnail pull-left"><img class="ssm-media-list-item-img" src="{{image}}"></a>
+                                <h4 class="ssm-media-list-item-title display-table-cell">{{title}}
+                                    <br><span class="ssm-media-list-item-subtitle">{{typeName}}</span>
+                                </h4>
+                            </div>
+                            <div class="unstyled pull-right ssm-media-list-item-nav btn-group">
+                                <!-- <a class="btn" href="#" onclick="deleteEntity('Video', '{{guid}}', '{{title}}')"><i class="icon-remove"></i><!-- {{#i18n}}delete{{/i18n}} --></a> -->
+                                <a class="btn open-pane"
+                                       data-json="getVideo.php?vGuid={{guid}}"
+                                       data-template="video/edit.html"
+                                       data-id="sliding-content"
+                                       data-callback=""><i class="icon-pencil"></i> {{#i18n}}Edit{{/i18n}}</a>
+                                <a class="btn" href="#" onclick="popVideoLightbox(this)" data-videourl="{{previewStream}}" data-imageurl="{{image}}"><i class="icon-search"></i> {{#i18n}}Preview{{/i18n}}</a>
+                                <a class="btn move-to-summary"
+                                       href="#"
+                                       data-destination="media-summary"
+                                       data-source="media-left-side"
+                                       data-type="media"
+                                       data-guid="{{guid}}"
+                                       data-image="{{image}}"
+                                       data-video="{{previewStream}}"
+                                       data-title="{{title}}"><i class="icon-plus"></i> {{#i18n}}Add to Player{{/i18n}}</a>
+                            </div>
+                        </div>
+                    </li>
+                    {{/allVideos}}
+
+                </ul>

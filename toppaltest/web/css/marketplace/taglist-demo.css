@@ -1,0 +1,9 @@
+.issue-solved {
+    text-decoration: line-through;
+}
+
+.ui-state-highlight {
+    height: 18px;
+    width: 48px;
+    border: 1px dashed lightGrey;
+}

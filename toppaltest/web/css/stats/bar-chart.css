@@ -1,0 +1,67 @@
+.top-site-container-holder {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bar-chart-container {
+    font-weight: bold;
+    margin-top: 6px;
+    margin-left: 12px;
+}
+
+.bar-chart-container > .legend-container {
+    height: 21px;
+    padding-bottom:4px;
+}
+
+.bar-chart-legend {
+    font-size: 16px;
+    color: #000;
+    font-weight:300;
+    float: left;
+    padding-bottom:2px;
+}
+
+.bar-chart-value {
+    background-position: -1000px -1000px;
+    font-size: 16px;
+    color: #7f7f7f;
+    float: right;
+}
+
+.bar-chart-value.icon {
+    background-repeat: no-repeat;
+    padding-left: 15px;
+}
+
+.bar-chart-value.up {
+    background-position: -43px -69px;
+}
+
+.bar-chart-value.down {
+    background-position: -43px -83px;
+}
+
+.bar-chart-container.values-position-after-bar .bar-chart-value {
+    text-align:center;
+    position: relative;
+    top: 21px;
+    left: 0px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #444;
+    color: white;
+}
+
+.bar-chart-bar {
+    height: 20px;
+}
+
+.bar-chart-icon {
+    display: inline-block;
+    width: 22px;
+    height: 16px;
+    background-repeat: no-repeat;
+    margin-top: -3px;
+}

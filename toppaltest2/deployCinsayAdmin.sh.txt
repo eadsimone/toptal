@@ -1,0 +1,44 @@
+#!/bin/sh
+
+set -eu
+
+CINSAYADMIN_ROOT="/home/cinsay/cinsayadmin"
+GENERAL_ERROR_MESSAGE="\n\n** ERROR OCCURRED. EXECUTION HALTED **\n\n"
+
+CURRENT=`pwd`
+
+# Check that CINSAYADMIN_ROOT exists before running script
+if [ ! -d "$CINSAYADMIN_ROOT" ]; then
+   echo -e"\n'$CINSAYADMIN_ROOT' does not exist"
+   echo -e "$GENERAL_ERROR_MESSAGE"
+   exit 1;
+fi
+
+# Check that the Maven bundle specified exists before running script
+if [ ! -f $1 ]; then
+    echo -e "\n'$1' does not exist"
+    echo -e "$GENERAL_ERROR_MESSAGE"
+    exit 1;
+fi
+
+sudo rm -R $CINSAYADMIN_ROOT/* && echo -e "\nSuccessfully removed '$CINSAYADMIN_ROOT/*'"
+
+sudo cp $1 $CINSAYADMIN_ROOT/ && echo -e "\nCopied '$1' to '$CINSAYADMIN_ROOT'" || { echo "$GENERAL_ERROR_MESSAGE"; exit 1; }
+
+cd $CINSAYADMIN_ROOT && echo -e "\nChanged directory to '$CINSAYADMIN_ROOT'" || { echo "$GENERAL_ERROR_MESSAGE"; exit 1; }
+
+# From http://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash,
+# this allows for a fully-qualified path to be passed in as argument and still be processed correctly
+TEMPNAME=$1
+BUNDLENAME=${TEMPNAME##*/}
+
+echo -e "\nUntarring '$BUNDLENAME'"
+sudo tar -xf $BUNDLENAME
+
+sudo chown -R apache * && echo -e "\nRan: chmod -R apache *" || { echo "$GENERAL_ERROR_MESSAGE"; exit 1; }
+
+sudo chgrp -R apache * && echo -e "\nRan: chgrp -R apache *" || { echo "$GENERAL_ERROR_MESSAGE"; exit 1; }
+
+sudo rm -R $CINSAYADMIN_ROOT/$BUNDLENAME && echo -e "\nDeleted '$BUNDLENAME'" || { echo "$GENERAL_ERROR_MESSAGE"; exit 1; }
+
+cd $CURRENT && echo -e "\nChanged directory back to '$CURRENT'\n" || { echo "$GENERAL_ERROR_MESSAGE"; exit 1; }

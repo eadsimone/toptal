@@ -1,0 +1,35 @@
+<div class="ssm-blank-box">
+    <h1 class="header header-full centered">{{pageInfo.title}}</h1>
+    <form class="" action="formHandler/login" method="POST">
+    	{{#error}}
+        <div class="alert alert-error">{{error}}</div>
+        {{/error}}
+        <div class="control-group">
+            <label class="control-label" for="username">{{#i18n}}Username{{/i18n}}</label>
+            <div class="controls">
+                <input type="text" id="username" name="username" placeholder="">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="email">{{#i18n}}Email{{/i18n}}</label>
+            <div class="controls">
+                <input type="text" id="email" name="email" placeholder="{{#i18n}}example@email.com{{/i18n}}">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">{{#i18n}}Password{{/i18n}} <span class="red"></span></label>
+            <div class="controls">
+                <input type="password" id="password" name="password" placeholder="{{#i18n}}Password{{/i18n}}">
+            </div>
+        </div>
+        <input type="submit" value="{{#i18n}}Login to your Account{{/i18n}}" class="btn btn-success">
+    </form>
+</div>
+<!-- 
+{
+    "email": "jesse20130205@cinsay.com",
+    "username": "cinsay99Public",
+    "password": "cinsay99Private",
+    "typeName": "clientAuth"
+}
+ -->

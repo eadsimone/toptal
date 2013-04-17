@@ -1,0 +1,38 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+	<title>Cinsay Admin {{#pageInfo.title}}- {{pageInfo.title}}{{/pageInfo.title}}
+	</title>
+
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="/js/lib/jquery.tablesorter.pager.js"></script>
+
+
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link href="{{pageInfo.rootPath}}/css/style.css" rel="stylesheet">
+
+    <!--<link href="{{pageInfo.rootPath}}/css/admin.css" rel="stylesheet">-->
+
+
+	{{#pageInfo.scripts}}
+	   <script src="{{pageInfo.rootPath}}/js{{.}}"></script>
+	{{/pageInfo.scripts}}
+	
+    <meta charset="utf-8" />
+
+</head>
+
+<body id="body">
+
+{{^blank}}
+{{> _common/navbar}}
+{{/blank}}

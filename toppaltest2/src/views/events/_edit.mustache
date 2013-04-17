@@ -1,0 +1,59 @@
+<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+<!--<script type="text/javascript" src="../../../web/js/cinsay/jquery.validate.js"></script>-->
+<!--<script type="text/javascript" src="../../../web/js/cinsay/customvalidate.js"></script>-->
+{{#User}}
+<h3 class="header header-full">{{#i18n}}Edit User{{/i18n}}</h3>
+
+
+
+<form class="form-horizontal" id="billingInformationForm">
+    <div class="control-group">
+        <label class="control-label" for="address">{{#i18n}}First Name{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-xlarge required" id="address" name="address" value="{{firstname}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="city">{{#i18n}}Last Name{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-xlarge required" id="city" name="city" accept="" value="{{lastname}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="city">{{#i18n}}Login{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-xlarge required" id="city" name="city" accept="" value="{{login}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="city">{{#i18n}}Email{{/i18n}}</label>
+        <div class="controls">
+            <input type="text" class="input-xlarge required" id="city" name="city" accept="" value="{{email}}">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="channel_partner">{{#i18n}}Channel Partner{{/i18n}}</label>
+        <div class="controls">
+            <select id="channel_partner" name="channel_partner">
+                {{#channel}}
+                <option value="{{channelPartnerGuid}}" {{#selected}}selected{{/selected}}>{{label}}</option>
+                {{/channel}}
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <input type="hidden" placeholder="" value="" name="expiration_date" id="expiration_date">
+        <input type="hidden" placeholder="" value="{{gateway_service_type}}" name="gateway_service_type" id="gateway_service_type">
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button type="button" id="AAacccountButton" name="acccountButton" class="btn btn-success pull-right" onclick="encripted();saveButtons.billing();">{{#i18n}}Save{{/i18n}}</button>
+
+        </div>
+    </div>
+</form>
+{{/User}}
+{{^User}}
+Problem with Data
+{{/User}}

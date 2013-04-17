@@ -1,0 +1,30 @@
+<div id="{{guid}}-sidebar" style="display:none;" class="ssm-media-item-sidebar clearfix">
+    <table class="ssm-media-item-sidebar-table">
+        <tr>
+            <td class="ssm-media-item-sidebar-image"><img src="{{image}}"></td>
+            <td class="ssm-media-item-sidebar-title-wrapper"><div class="ssm-media-item-sidebar-title">{{title}}</div></td>
+            <td class="ssm-media-item-sidebar-btn-group">
+                <div class="btn-group">
+<!--                     <div class="btn btn-small" onclick="moveSummaryItemUp(this)" title="{{#i18n}}Move Up{{/i18n}}"><i class="icon-arrow-up"></i></div> -->
+<!--                     <div class="btn btn-small" onclick="moveSummaryItemDown(this)" title="{{#i18n}}Move Down{{/i18n}}"><i class="icon-arrow-down"></i></div> -->
+                    <div class="btn btn-small open-pane" title="{{#i18n}}Edit Item{{/i18n}}"
+                         data-json="getProduct.php?pGuid={{guid}}"
+                         data-template="product/edit.html"
+                         data-id="sliding-content"
+                         data-callback="saveButtons.saveProduct();"><i class="icon-pencil"></i></div>
+                    <div class="btn btn-small move-to-library"
+                         title="{{#i18n}}Remove Item{{/i18n}}"
+                         data-destination="{{source}}"
+                         data-source="{{destination}}"
+                         data-type="{{type}}"
+                         data-guid="{{guid}}"
+                         data-image="{{image}}"
+                         data-title="{{title}}"
+                    {{#videoStreams}}data-video{{bandwidth}}="{{urlProgressiveDownload}}"{{/videoStreams}}>
+                    <i class="icon-remove"></i>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" id="product_{{guid}}" name="product[]" value="{{guid}}" />
+</div>

@@ -1,0 +1,233 @@
+<div>
+<div style="width: 100%!important; float: left;margin: 20px 0 0 90px;"><h3>Manage Account: {{storename}}</h3></div>
+<div style="width: 20%!important; float: left;margin-top: 20px">{{> merchants/_sidenav}}</div>
+<div style="width: 80%!important;float: left; margin-top: 20px">
+<h3>{{#i18n}}Merchant Account Information{{/i18n}}</h3>
+        <div>
+
+<form class="form-horizontal" id="merchantAccountInformationForm" style="clear:both;float;left;">
+    <div class="control-group">
+        <label class="control-label" for="merchant-options">{{#i18n}}Merchant Account Type{{/i18n}}</label>
+        <div class="controls">
+            <select id="merchant-options" name="merchant-options" class="input-xlarge" style="padding:3px 5px">
+                    <option>{{#i18n}}Select Type{{/i18n}}</option>
+                {{#merchantAccountInformation.merchantAccountType.options}}
+                    <option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>
+                {{/merchantAccountInformation.merchantAccountType.options}}
+            </select>
+            <input class="selected-value" type="hidden" value="{{merchantAccountInformation.merchantAccountType.value}}" style="display:hidden">
+        </div>
+    </div>
+
+
+    <div id="merchant-options-container">
+
+        <!--PayOnline-->
+        <div id="payOnlineInfo" style="">
+            <div class="control-group">
+                <label class="control-label" for="payonline_merchantid">{{#i18n}}Merchant ID{{/i18n}} <span style="color:red">*</span></label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge required" required id="payonline_merchantid" name="payonline_merchantid" value="{{merchantAccountInformation.payOnlineInfo.merchantId}}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="payonline_privatekey">{{#i18n}}Private Key{{/i18n}} <span style="color:red">*</span></label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge required" required id="payonline_privatekey" name="payonline_privatekey" value="{{merchantAccountInformation.payOnlineInfo.privateKey}}">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <button type="button" id="PayOnlineButton" name="acccountButton" class="btn btn-success pull-right" onclick="saveButtons.accountmerchant();">{{#i18n}}Save{{/i18n}}</button>
+                </div>
+            </div>
+
+        </div>
+        <!--End PayOnline-->
+
+
+
+        <!--PayPal-->
+        <div id="paypal">
+
+            <div class="margin-content"><b>{{#i18n}}How to connect your PayPal account{{/i18n}}</b> <br> {{#i18n}}In addition to entering your PayPal email address in the form below, you must configure your PayPal Business Standard/Advanced or Pro Account to allow Smart Store eCommerce transactions to be processed using your PayPal account. You will need to do this even if you are already connected to other third party eCommerce providers.{{/i18n}}
+                <br />
+                <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_registration-run" target="_blank">
+                    {{#i18n}}Click here to create your PayPal Business Standard/Advanced or Pro Account{{/i18n}}</a>, {{#i18n}}or if you already have a PayPal Business Standard/Advanced or Pro Account{{/i18n}}
+                <a href="http://console.mycinsay.com/skin/adminhtml/default/cinsay/pdfs/CinsayPayPalSetup.pdf" target="_blank">{{#i18n}}download instructions about how to configure your PayPal account{{/i18n}}</a> {{#i18n}}for your Cinsay Smart Store. For additional assistance,
+                email us at{{/i18n}}
+                <a href="mailto:Support@cinsay.com">support@cinsay.com</a>.
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="paypal_email">{{#i18n}}PayPal Email Address{{/i18n}} <span style="color:red">*</span></label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge email required" required id="paypal_email" name="paypal_email" value="{{merchantAccountInformation.paypal.receiverEmail}}">
+                </div>
+            </div>
+
+            <div class="margin-content">
+
+                <h3>{{#i18n}}Important Notes and restrictions{{/i18n}}</h3>
+                <p>{{#i18n}}PayPal does not allow merchants to offer guest checkout (checkout without a PayPal account) unless your PayPal Business Standard/Advanced or Pro account is verified by PayPal.{{/i18n}} <a href="https://cms.paypal.com/cgi-bin/marketingweb?cmd=_render-content&amp;content_ID=security/verification_faq" target="_blank">{{#i18n}}Please click here to review the PayPal FAQs for verifying your PayPal Business Standard/Advanced or Pro account with PayPal{{/i18n}}</a>.</p>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <button type="button" id="paypalButton" name="acccountButton" class="btn btn-success pull-right" onclick="saveButtons.accountmerchant();">{{#i18n}}Save{{/i18n}}</button>
+                </div>
+            </div>
+
+        </div>
+        <!--End PayPal->
+
+
+
+        <!--PayPal Direct-->
+        <div id="paypalDirect">
+
+            <div class="margin-content"><b>{{#i18n}}How to connect your PayPal account{{/i18n}}</b> <br> {{#i18n}}In addition to entering your PayPal email address in the form below, you must configure your PayPal Business Standard/Advanced or Pro Account to allow Smart Store eCommerce transactions to be processed using your PayPal account. You will need to do this even if you are already connected to other third party eCommerce providers.{{/i18n}}
+                <br />
+                <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_registration-run" target="_blank">
+                    {{#i18n}}Click here to create your PayPal Business Standard/Advanced or Pro Account{{/i18n}}</a>, {{#i18n}}or if you already have a PayPal Business Standard/Advanced or Pro Account{{/i18n}}
+                <a href="http://console.mycinsay.com/skin/adminhtml/default/cinsay/pdfs/CinsayPayPalSetup.pdf" target="_blank">{{#i18n}}download instructions about how to configure your PayPal account{{/i18n}}</a> {{#i18n}}for your Cinsay Smart Store. For additional assistance,
+                 email us at{{/i18n}}
+                <a href="mailto:Support@cinsay.com">support@cinsay.com</a>.
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="PayPalEMailAddress">{{#i18n}}PayPal E-Mail Address{{/i18n}} <span style="color:red">*</span></label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge email required" required id="PayPalEMailAddress" name="PayPalEMailAddress" value="{{merchantAccountInformation.paypalDirect.paypalEmailAddress}}">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="PayPalApiUserName">{{#i18n}}PayPal Api User Name{{/i18n}} <span style="color:red">*</span></label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge required" required id="PayPalApiUserName" name="PayPalApiUserName" value="{{merchantAccountInformation.paypalDirect.paypalApiUsername}}">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="PayPalApiPassword">{{#i18n}}PayPal Api Password{{/i18n}} <span style="color:red">*</span></label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge required" required id="PayPalApiPassword" name="PayPalApiPassword" value="{{merchantAccountInformation.paypalDirect.paypalApiPassword}}">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="PayPalApiSignature">{{#i18n}}PayPal Api Signature{{/i18n}}<span style="color:red">*</span></label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge required" required id="PayPalApiSignature" name="PayPalApiSignature"  value="{{merchantAccountInformation.paypalDirect.paypalApiSignature}}">
+                </div>
+            </div>
+
+            <div class="margin-content">
+
+                <h3>{{#i18n}}Important Notes and restrictions{{/i18n}}</h3>
+                <p>{{#i18n}}PayPal does not allow merchants to offer guest checkout (checkout without a PayPal account) unless your PayPal Business Standard/Advanced or Pro account is verified by PayPal.{{/i18n}} <a href="https://cms.paypal.com/cgi-bin/marketingweb?cmd=_render-content&amp;content_ID=security/verification_faq" target="_blank">{{#i18n}}Please click here to review the PayPal FAQs for verifying your PayPal Business Standard/Advanced or Pro account with PayPal{{/i18n}}</a>.</p>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <button type="button" id="paypalDirectButton" name="acccountButton" class="btn btn-success pull-right" onclick="saveButtons.accountmerchant();">{{#i18n}}Save{{/i18n}}</button>
+                </div>
+            </div>
+
+        </div>
+        <!--End PayPal Direct-->
+
+
+        <!--Personal Merchant Account-->
+        <div id="braintreeLinked">
+            <div class="control-group">
+                <label class="control-label" for="linkedaccuont">{{#i18n}}Linked Account ID{{/i18n}}<span style="color:red">*</span></label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge required" required id="linkedaccuont"  name="linkedaccuont" value="{{merchantAccountInformation.braintreeLinked.linkedMerchantAccountName}}">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <button type="button" id="linkedaccuontButton" name="linkedaccuontButton" class="btn btn-success pull-right" onclick="saveButtons.accountmerchant();">{{#i18n}}Save{{/i18n}}</button>
+                </div>
+            </div>
+        </div>
+        <!--End Personal Merchant Account-->
+
+        <!--Braintree-->
+        <div id="braintree">
+
+            <div class="control-group">
+                <label class="control-label" for="braintree_merchantid">{{#i18n}}Merchant ID{{/i18n}}<span style="color:red">*</span></label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge required" required id="braintree_merchantid" name="braintree_merchantid" value="{{merchantAccountInformation.braintree.merchantId}}">
+                </div>
+            </div>
+
+            <div class="control-group">
+            <label class="control-label" for="braintree_publickey">{{#i18n}}Public Key{{/i18n}}<span style="color:red">*</span></label>
+            <div class="controls">
+                <input type="text" class="input-xlarge required" required id="braintree_publickey" name="braintree_publickey" value="{{merchantAccountInformation.braintree.publicKey}}">
+            </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="braintree_privatekey">{{#i18n}}Private Key{{/i18n}}<span style="color:red">*</span></label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge required" required id="braintree_privatekey" name="braintree_privatekey" value="{{merchantAccountInformation.braintree.privateKey}}">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="braintree_encryptionkey">{{#i18n}}Client Side Encryption Key{{/i18n}} <span style="color:red">*</span></label>
+                <div class="controls">
+                    <textarea rows="4" class="input-block-level required" required id="braintree_encryptionkey" name="braintree_encryptionkey">{{merchantAccountInformation.braintree.ClientSideEncriptionKey}}</textarea>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="select01">{{#i18n}}Environment{{/i18n}}</label>
+                <div class="controls">
+
+                    <select id="braintree_environment" name="braintree_environment">
+                        <option value="SANDBOX" {{#merchantAccountInformation.environment.SANDBOX}}selected{{/merchantAccountInformation.environment.SANDBOX}}>Sandbox</option>
+                        <option value="PRODUCTION" {{#merchantAccountInformation.environment.PRODUCTION}}selected{{/merchantAccountInformation.environment.PRODUCTION}}>Production</option>
+                    </select>
+                    <input class="selected-value" type="hidden" value="{{merchantAccountInformation.merchantAccountType.value}}" style="display:hidden">
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                <div class="controls">
+                    <button type="button" id="acccountButton" name="acccountButton" class="btn btn-success pull-right" onclick="saveButtons.accountmerchant();">{{#i18n}}Save{{/i18n}}</button>
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--END BRAINTREE -->
+
+    <!-- set active -->
+    <style>
+
+        #merchant-options-container > div{
+            display:none;
+        }
+        #merchant-options-container > #{{merchantAccountInformation.merchantAccountType.value}} {
+            display:block;
+        }
+
+    </style>
+
+
+</form>
+</div>
+</div>
+

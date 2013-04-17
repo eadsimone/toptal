@@ -1,0 +1,51 @@
+/******** Remove this section after integration ********/
+
+.issue-solved {
+    text-decoration: line-through;
+}
+
+/******* /Remove this section after integration ********/
+
+.ui-widget {
+    font-size: 12px;
+    font-family: 'Trebuchet MS', Helvetica, Arial, Verdana, sans-serif;
+}
+
+.ui-autocomplete {
+    cursor: default;
+}
+
+.ui-autocomplete-item-desc {
+    color: graytext;
+    font-size: .9em;
+}
+
+.ui-autocomplete.ui-corner-all,
+.ui-autocomplete > .ui-menu-item > .ui-corner-all {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.ui-autocomplete > .ui-menu-item > a {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: -1px;
+}
+.ui-autocomplete > .ui-menu-item:last-child > a {
+    border-bottom: 0;
+}
+.ui-autocomplete > .ui-menu-item > a.ui-state-hover {
+    border: 1px solid #fff;
+}
+
+.ui-autocomplete {
+    max-height: 612px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#category-input {
+    width: 381px;
+    margin-bottom: 2px;
+    margin-right: 3px;
+    border: 1px solid #ddd;
+}

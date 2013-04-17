@@ -1,0 +1,301 @@
+/** { margin:0; padding:0; }*/
+body { background: #ddd !important; }
+
+body, p, div, span, ul, li, a, h1, h2, h3, h4, input, ul, li{
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    list-style-type:none;
+    text-decoration:none;
+    font-weight:300;
+}
+header, section, footer {
+    display: block;
+}
+input, button, select, textarea{
+    font-weight:300;
+}
+label {
+    font-weight:500;
+}
+h1{
+    font-size:32px;
+    font-weight:500;
+    color:#000;
+    text-shadow: 1px 1px white;
+}
+h2{
+    font-size:28px;
+    font-weight:500;
+    color:#000;
+    text-shadow: 1px 1px white;
+}
+h3{
+    font-size: 22px;
+    font-weight:500;
+    color:#000;
+    text-shadow: 1px 1px white;
+}
+a{
+    cursor:pointer;
+}
+.bold{
+    font-weight:500;
+}
+
+.form-holder{
+    background:white;
+    width:1024px;
+    padding:30px;
+    margin:0 auto;
+}
+
+/*--------------------------
+        PAGE HEADERS 
+ --------------------------*/
+.header{
+    margin:5px 0 15px;
+}
+.header-full{
+    width:100%;
+}
+.header-left{
+    width:50%;
+    float:left;
+}
+.header-right{
+    width:50%;
+    float:left;
+    text-align:right;
+}
+
+#title {
+    font-size: 25px;
+    margin: 20px 0;
+}
+
+
+/*--------------------------
+    BUTTON CUSTOM STYLES 
+ --------------------------*/
+.btn i {
+    margin-top:3px;
+}
+
+
+
+/*--------------------------
+PLAN UPGRADE PARTIAL STYLES 
+--------------------------*/
+.plans-wrapper{
+    margin-bottom:50px;
+}
+
+
+
+
+/*------------------------------
+     PLAN USAGE PARTIAL STYLES 
+------------------------------*/
+.plan-usage-table-wrapper td{
+    vertical-align:middle;
+}
+.plan-progress{
+    width:500px;
+}
+.progress.plan-progress{
+    margin:10px 0;
+}
+/*.plan-usage-table-wrapper{*/
+    /*background:#f7f7f7;*/
+    /*border: 1px solid #ccc;*/
+    /*border-radius: 7px;*/
+    /*margin-bottom:18px;*/
+/*}*/
+/*.plan-usage-table-wrapper .table{*/
+    /*margin-bottom:0;*/
+/*}*/
+/*.plan-usage-table{*/
+    /*border:0;*/
+/*}*/
+/*.plan-usage-table > tr{*/
+    /*border-top:1px solid #ccc;*/
+/*}*/
+/*.plan-usage-table > tr:first-child{*/
+    /*border:0;*/
+/*}*/
+/*.plan-usage-table > tr > td{*/
+    /*vertical-align:middle;*/
+/*}*/
+/*.plan-usage-table > tr > td:first-child{*/
+    /*padding:8px 20px;*/
+/*}*/
+/*.plan-usage-table > tr > td > a:hover{*/
+    /*text-decoration:underline;*/
+/*}*/
+/*.plan-progress{*/
+    /*width:590px;*/
+    /*margin:15px 0;*/
+    /*background-color:#ddd;*/
+    /*background-image: -moz-linear-gradient(top, #d5d5d5, #d9d9d9);*/
+    /*background-image: -ms-linear-gradient(top, #d5d5d5, #d9d9d9);*/
+    /*background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#d5d5d5), to(#d9d9d9));*/
+    /*background-image: -webkit-linear-gradient(top, #d5d5d5, #d9d9d9);*/
+    /*background-image: -o-linear-gradient(top, #d5d5d5, #d9d9d9);*/
+    /*background-image: linear-gradient(top, #d5d5d5, #d9d9d9);*/
+/*}*/
+
+
+
+
+
+/*----------------------------------
+     PRODUCT LIBRARY PARTIAL
+------------------------------------*/
+.items-in-library{
+    display:block;
+    padding-top:6px;
+    font-size:16px;
+}
+.control-row{
+    padding:20px 0;
+    border-bottom:1px solid #ccc;
+}
+.product-wrapper{
+    padding:15px 0;
+    border-bottom:1px solid #ccc;
+}
+.product-wrapper.product-format-grid{
+    width:400px;
+    border:1px solid #ccc;
+    float:left;
+}
+.product-details{
+    width:400px;
+}
+.product-image{
+    height:100px;
+    padding-left:15px;
+    padding-right:15px;
+}
+.product-image img{
+    height:100px;
+}
+.product-details{
+    width:400px;
+    height:100px;
+    display:table;
+}
+.product-info{
+    display:table-cell;
+    vertical-align:middle;
+    padding-bottom:10px;
+}
+.product-name{
+    font-size:22px;
+    display:block;
+}
+.product-actions{
+    font-size:14px;
+    display:block;
+    text-align:right;
+}
+.helpful-hint{
+    font-size:18px;
+    padding:40px 0;
+    text-align:center;
+}
+.helpful-hint span, .helpful-hint p{
+    font-size:18px;
+}
+
+/*---------------------------------------
+OPTIONS TABLES
+----------------------------------------*/
+.table-of-options th, .table-of-options td {
+    border:0;
+}
+.table-of-options th {
+    border: 1px solid #cccccc;
+}
+.table-of-options td{
+    border-right: 1px solid #cccccc;
+    border-left: 1px solid #ccc;
+}
+.table-of-options td:first-child {
+    width:150px;
+}
+.table-of-options td:nth-child(2) {
+    width:90px;
+}
+.table-of-options td:nth-child(3){
+    width:90px;
+}
+.table-of-options td:nth-child(4){
+    width:90px;
+}
+.table-of-options td:nth-child(5){
+    width:90px;
+}
+.table-of-options td:nth-child(6){
+    width:20px;
+    text-align: center;
+}
+.table-of-options td:nth-child(7){
+    width:20px;
+    text-align: center;
+}
+.table-donations td:first-child {
+    width:85%;
+}
+.table-donations td:last-child {
+    text-align: center;
+}
+
+/*---------------------------------------
+        VIDEO EDIT PAGE
+----------------------------------------*/
+.video-checkbox
+{
+    display: inline-block;
+    text-align: center;
+    margin-right: 20px;
+}
+.video-checkbox label {
+    display: block;
+}
+.content-left .sub-nav{
+    width:690px;
+    box-shadow: 0px 10px 11px 6px white;
+    -o-box-shadow: 0px 10px 11px 6px white;
+    -ms-box-shadow: 0px 10px 11px 6px white;
+    -moz-box-shadow: 0px 10px 11px 6px white;
+    -webkit-box-shadow: 0px 10px 11px 6px white;
+}
+
+/*---------------------------------------
+    GENERAL PLAYER INFORMATION PARTIAL
+----------------------------------------*/
+.container-wrapper{
+    background-color:#eee;
+    width:700px;
+    height:394px;
+}
+
+
+
+/*---------------------------------------
+        PUBLISH PARTIAL
+----------------------------------------*/
+.publish-social-icons{
+    margin-bottom:15px;
+}
+.publish-social-icons a{
+    padding-right:15px;
+}
+
+#date-picker-container {
+    float:left;clear:both;width:100%;margin: 0px 0px 10px 0;
+
+}
+.date-picker{
+    float:left; width:250px; padding:10px
+}

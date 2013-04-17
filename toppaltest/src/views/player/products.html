@@ -1,0 +1,55 @@
+
+                <h3 class="header header-full">{{#i18n}}Products in Library{{/i18n}}</h3>
+                <div class="ssm-media-list-add">
+                    <a class="btn btn-large open-pane"
+                       data-json="blank.json"
+                       data-template="product/add.html"
+                       data-id="sliding-content"
+                       data-callback="C.ssm.pwo.triggerOptionChange()">{{#i18n}}+ add new{{/i18n}}</a>
+                </div>
+                <ul class="unstyled ssm-media-list" id="product-left-side">
+                    <!--<li>-->
+                        <!--<div class="ssm-media-list-add clearfix">-->
+                            <!--<a class="btn btn-large open-pane"-->
+                               <!--data-json="getProduct.php"-->
+                               <!--data-template="product/add.html"-->
+                               <!--data-id="sliding-content-products">+ add new</a>-->
+                        <!--</div>-->
+                    <!--</li>-->
+
+                    {{#allProducts}}
+                    <li id="{{guid}}">
+                        <div class="ssm-media-list-item clearfix">
+                            <div class="pull-left clearfix display-table">
+                                <!--<a class="thumbnail pull-left open-pane" href="product_{{guid}}"><img class="ssm-media-list-item-img" src="{{image}}"></a>-->
+                                <a class="thumbnail pull-left open-pane"
+                                   data-json="getProduct.php?pGuid={{guid}}"
+                                   data-template="product/edit.html"
+                                   data-id="sliding-content"
+                                   data-callback=""><img class="ssm-media-list-item-img" src="{{image}}"></a>
+                                <h4 class="ssm-media-list-item-title display-table-cell">{{name}}
+                                    <br><span style="font-size:13px;">{{typeName}}</span>
+                                </h4>
+                            </div>
+                            <div class="unstyled pull-right ssm-media-list-item-nav btn-group">
+                                <!-- <a class="btn" href="#" onclick="deleteEntity('Product', '{{guid}}', '{{name}}')"><i class="icon-remove"></i><!-- {{#i18n}}delete{{/i18n}} --></a> -->
+                                <a class="btn open-pane"
+                                       data-json="getProduct.php?pGuid={{guid}}"
+                                       data-template="product/edit.html"
+                                       data-id="sliding-content"><i class="icon-pencil"></i> {{#i18n}}Edit{{/i18n}}</a>
+                                <a class="btn move-to-summary"
+                                       href="#"
+                                       data-destination="product-summary"
+                                       data-source="product-left-side"
+                                       data-type="product"
+                                       data-guid="{{guid}}"
+                                       data-image="{{image}}"
+                                       data-title="{{name}}"><i class="icon-plus"></i> {{#i18n}}Add to Player{{/i18n}}</a>
+                            </div>
+                        </div>
+                    </li>
+                    {{/allProducts}}
+
+                </ul>
+
+
