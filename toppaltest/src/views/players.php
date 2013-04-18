@@ -60,14 +60,14 @@
         console.log($(toyin));
     }
 
-    function deletePlayer(playerGuid, playerName) {
-        var doDelete = confirm("Are you sure you want to delete '" + playerName + "'?");
+    function deletePlayer(id, Name) {
+        var doDelete = confirm("Are you sure you want to delete '" + Name + "'?");
         if(doDelete == true) {
 
             //alert('you pressed OK to delete ' + playerGuid);
 
-            C.ssm.ajax.service( {
-                url: '../src/jsapiCalls/deletePlayer.php?pGuid=' + playerGuid
+            $.ajax({
+                url: 'http://local.toppaltest.com/web/deleteevent/' + id
             } )
                     .done( function( response ) {
 

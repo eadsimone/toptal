@@ -71,9 +71,8 @@
         if(doDelete == true) {
 
             //alert('you pressed OK to delete ' + playerGuid);
-
-            C.ssm.ajax.service( {
-                url: '../src/jsapiCalls/deletePlayer.php?pGuid=' + playerGuid
+            $.ajax({
+                url: 'http://local.toppaltest.com/web/deleteevent/' + playerGuid
             } )
                     .done( function( response ) {
 

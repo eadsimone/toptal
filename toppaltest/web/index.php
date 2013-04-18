@@ -113,6 +113,24 @@ $app->put("/eventupdate/:id", function ($id) use ($app, $db) {
     }
 });
 
+$app->get('/deleteevent/:id',$auth(), function ($id) use($app, $db) {
+    $app->response()->header("Content-Type", "application/json");
+    $event = $db->todolist()->where("id", $id);
+    if ($event->fetch()) {
+        $result = $event->delete();
+        echo json_encode(array(
+            "status" => true,
+            "message" => "Book deleted successfully"
+        ));
+    }
+    else{
+        echo json_encode(array(
+            "status" => false,
+            "message" => "Book id $id does not exist"
+        ));
+    }
+});
+
 $app->get('/home(/)', $auth(),function () use ($app, $mustache) {
     //echo "account information page";
 //    $page['title'] = "LIST TODO";

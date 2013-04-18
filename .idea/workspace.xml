@@ -23,7 +23,16 @@
       <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/toppaltest/web/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="0" selection-start="2320" selection-end="2320" vertical-scroll-proportion="0.33333334">
+            <state line="116" column="0" selection-start="3167" selection-end="3167" vertical-scroll-proportion="0.33333334">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Router.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/toppaltest/vendor/slim/slim/Slim/Router.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="173" column="0" selection-start="5610" selection-end="5610" vertical-scroll-proportion="-7.2916665">
               <folding />
             </state>
           </provider>
@@ -79,21 +88,8 @@
       <file leaf-file-name="addevent.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/toppaltest/src/views/addevent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="876" selection-end="876" vertical-scroll-proportion="-6.9583335">
+            <state line="73" column="20" selection-start="2354" selection-end="2362" vertical-scroll-proportion="-5.9166665">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Slim.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/toppaltest/vendor/slim/slim/Slim/Slim.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1239" column="0" selection-start="41488" selection-end="41488" vertical-scroll-proportion="-6.7916665">
-              <folding>
-                <marker date="1361197114000" expanded="true" signature="43318:43391" placeholder="{...}" />
-                <marker date="1361197114000" expanded="true" signature="43393:43455" placeholder="{...}" />
-                <marker date="1361197114000" expanded="true" signature="43461:43495" placeholder="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -101,9 +97,9 @@
       <file leaf-file-name="players.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/toppaltest/src/views/players.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="5" selection-start="672" selection-end="672" vertical-scroll-proportion="-14.375">
+            <state line="68" column="20" selection-start="2146" selection-end="2146" vertical-scroll-proportion="-10.625">
               <folding>
-                <marker date="1366262242000" expanded="true" signature="828:876" placeholder="..." />
+                <marker date="1366267174000" expanded="true" signature="828:876" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -112,7 +108,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/toppaltest/src/views/players/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="21" selection-start="78" selection-end="78" vertical-scroll-proportion="-1.875">
+            <state line="33" column="75" selection-start="1014" selection-end="1014" vertical-scroll-proportion="-16.875">
               <folding />
             </state>
           </provider>
@@ -136,12 +132,12 @@
         <option value="$PROJECT_DIR$/toppaltest/src/views/tablesorter/docs/index.html" />
         <option value="$PROJECT_DIR$/toppaltest/web/js/lib/tablesorter/docs/js/docs.js" />
         <option value="$PROJECT_DIR$/toppaltest/src/jsapiCalls/saveNewPlayer.php" />
-        <option value="$PROJECT_DIR$/toppaltest/src/views/players.php" />
+        <option value="$PROJECT_DIR$/toppaltest/src/views/players/add.html" />
+        <option value="$PROJECT_DIR$/toppaltest/src/views/_common/header.html" />
+        <option value="$PROJECT_DIR$/toppaltest/web/index.php" />
         <option value="$PROJECT_DIR$/toppaltest/src/views/players/index.html" />
         <option value="$PROJECT_DIR$/toppaltest/src/views/addevent.php" />
-        <option value="$PROJECT_DIR$/toppaltest/src/views/players/add.html" />
-        <option value="$PROJECT_DIR$/toppaltest/web/index.php" />
-        <option value="$PROJECT_DIR$/toppaltest/src/views/_common/header.html" />
+        <option value="$PROJECT_DIR$/toppaltest/src/views/players.php" />
       </list>
     </option>
   </component>
@@ -513,20 +509,16 @@
           <line>97</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/toppaltest/web/index.php</url>
+          <line>116</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/toppaltest/web/js/lib/tablesorter/docs/js/docs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="109" selection-end="191" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/toppaltest/src/views/_common/lightboxes.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -575,15 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/toppaltest/src/views/players.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="5" selection-start="672" selection-end="672" vertical-scroll-proportion="-14.375">
-          <folding>
-            <marker date="1366262242000" expanded="true" signature="828:876" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/toppaltest/NotORM/NotORM/Structure.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="77" column="0" selection-start="1893" selection-end="1893" vertical-scroll-proportion="-6.9583335">
@@ -605,16 +588,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/toppaltest/src/views/players/index.html">
+    <entry file="file://$PROJECT_DIR$/toppaltest/src/views/_common/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="21" selection-start="78" selection-end="78" vertical-scroll-proportion="-1.875">
+        <state line="48" column="32" selection-start="1823" selection-end="1823" vertical-scroll-proportion="-16.875">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/toppaltest/src/views/addevent.php">
+    <entry file="file://$PROJECT_DIR$/toppaltest/vendor/slim/slim/Slim/Router.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="876" selection-end="876" vertical-scroll-proportion="-6.9583335">
+        <state line="173" column="0" selection-start="5610" selection-end="5610" vertical-scroll-proportion="-7.2916665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/toppaltest/src/views/players/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="75" selection-start="1014" selection-end="1014" vertical-scroll-proportion="-16.875">
           <folding />
         </state>
       </provider>
@@ -628,16 +618,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/toppaltest/src/views/_common/header.html">
+    <entry file="file://$PROJECT_DIR$/toppaltest/src/views/addevent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="32" selection-start="1823" selection-end="1823" vertical-scroll-proportion="-16.875">
+        <state line="73" column="20" selection-start="2354" selection-end="2362" vertical-scroll-proportion="-5.9166665">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/toppaltest/src/views/players.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="20" selection-start="2146" selection-end="2146" vertical-scroll-proportion="-10.625">
+          <folding>
+            <marker date="1366267174000" expanded="true" signature="828:876" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/toppaltest/web/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="2320" selection-end="2320" vertical-scroll-proportion="0.33333334">
+        <state line="116" column="0" selection-start="3167" selection-end="3167" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
