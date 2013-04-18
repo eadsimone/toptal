@@ -1,1 +1,40 @@
-nada
+<h1>Demo</h1>
+
+<div class="ssm-media-list-add clearfix">
+    <a href="addevent" class="btn btn-large open-pane"
+       data-json="GetProduct.json"
+       data-template="video/edit.html"
+       data-id="sliding-content"
+       data-callback="saveButtons.newProduct();"
+            >{{#i18n}}+ add new{{/i18n}}</a>
+</div>
+<table id="myTable" class="tablesorter" border="0" cellpadding="0" cellspacing="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#allPlayers}}
+    <tr>
+        <td>{{id}}</td>
+        <td>{{name}}</td>
+        <td>{{date}}</td>
+        <td>{{priority}}</td>
+        <td>{{status}}</td>
+        <td>{{description}}</td>
+        <td>
+            <a class="btn" href="player_{{id}}"><i class="icon-pencil"></i> {{#i18n}}Edit{{/i18n}}</a>
+            <a class="btn" href="#" onclick="deletePlayer('{{id}}', '{{title}}')"><i class="icon-remove"></i> {{#i18n}}Delete{{/i18n}}</a>
+    </tr>
+    {{/allPlayers}}
+    </tbody>
+</table>
+</body>
+</html>

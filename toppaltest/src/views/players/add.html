@@ -36,25 +36,45 @@
 
 <h4>Hard-coded (Original) Form</h4>
 -->
-
-<form class="form-horizontal" id="saveNewPlayerForm" style="clear:both;float;left;">
+{{#allPlayers}}
+<form class="form-horizontal" id="saveNewPlayerForm" method="post" style="clear:both;float;left;">
+    <!--<input type="hidden" name="_METHOD" value="PUT">-->
     <div class="control-group">
-        <label class="control-label" for="add_player_name">{{#i18n}}Name{{/i18n}}<span style="color: #D40707; font-weight:bold;">*</span></label>
+        <label class="control-label" for="name">Name</label>
         <div class="controls">
-            <input type="text" class="input-block-level pname required" id="add_player_name" name="add_player_name" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50">
+            <input type="text" class="input-block-level" id="name" value="{{name}}" name="name" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="datepicker">Date:</label>
+        <div class="controls">
+             <input type="text" id="datepicker" name="date" value="{{date}}" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="priority">Priority</label>
+        <div class="controls">
+            <input type="text" class="input-block-level" id="priority" name="priority" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50" value="{{priority}}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="status">Status</label>
+        <div class="controls">
+            <input type="text" class="input-block-level" id="status" name="status" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50" value="{{status}}">
         </div>
     </div>
 
     <div class="control-group">
-        <label class="control-label" for="add_player_description">{{#i18n}}Description{{/i18n}}</label>
+        <label class="control-label" for="description">{{#i18n}}Description{{/i18n}}</label>
         <div class="controls">
-            <textarea placeholder="{{#i18n}}Player Description{{/i18n}}" maxlength="255" rows="4" class="input-block-level" id="add_player_description" name="add_player_description"></textarea>
+            <textarea placeholder="{{#i18n}}Player Description{{/i18n}}" maxlength="255" rows="4" class="input-block-level" id="description" name="description">{{description}}</textarea>
         </div>
     </div>
 
     <div class="control-group">
         <div class="controls">
-            <button type="button" class="btn btn-success" id="saveNewPlayerButton" onclick="saveNewPlayer();">{{#i18n}}Save Player{{/i18n}}</button>
+            <button type="button" class="btn btn-success" id="saveNewPlayerButton" onclick="saveNewPlayer();">{{#i18n}}Save{{/i18n}}</button>
         </div>
     </div>
 </form>
+{{/allPlayers}}

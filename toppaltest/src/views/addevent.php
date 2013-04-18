@@ -1,40 +1,46 @@
-
+<body>
 <div id="main">
 
 <?php
 
+    if(isset($id)){
+    $event = $db->todolist()->where("id", $id);
 
-
-    $json='[{"id":"1","name":"evento1","date":"2013-04-13","priority":"1","status":"progress","description":"mi primer evento"},
-    {"id":"2","name":"evento2","date":"2013-04-13","priority":"2","status":null,"description":"segundo evento"}]';
-    $res=json_decode($json, true);
-
-    $events = array();
-    foreach ($db->todolist() as $event) {
-        $events[]  = array(
-            "id" => $event["id"],
-            "name" => $event["name"],
-            "date" => $event["date"],
-            "priority" => $event["priority"],
-            "status" => $event["status"],
-            "description" => $event["description"]
+    if ($data = $event->fetch()) {
+        $json=array(
+            "id" => $data["id"],
+            "name" => $data["name"],
+            "date" => $data["date"],
+            "priority" => $data["priority"],
+            "status" => $data["status"],
+            "description" => $data["description"]
         );
     }
+    }else{$json=array(
+        "id" => "",
+        "name" => "",
+        "date" => "",
+        "priority" => "",
+        "status" => "",
+        "description" => ""
+    );}
 
-   // echo json_encode($events);
+//    $json='[{"id":"1","name":"evento1","date":"2013-04-13","priority":"1","status":"progress","description":"mi primer evento"},
+//    {"id":"2","name":"evento2","date":"2013-04-13","priority":"2","status":null,"description":"segundo evento"}]';
+//    $res=json_decode($json, true);
 
-    $aux=array('allPlayers' => $events);
+    $aux=array('allPlayers' => $json);
 
-
-    echo $mustache->render('players/index',$aux);
+    echo $mustache->render('players/add',$aux);
 ?>
 
 <script type="text/javascript">
     function saveNewPlayer() {
         //alert('saveNewPlayer');
         toyin = $.ajax({
-            url:"../src/jsapiCalls/saveNewPlayer.php",
-            data:$("form#saveNewPlayerForm").serialize()
+            url:"http://local.toppaltest.com/web/eventadd",
+            type: "post",
+            data:$("#saveNewPlayerForm").serialize()
         }).done(function(responseText){
                     if(responseText.responseCode == 1000) {
                         $("form#saveNewPlayerForm")[0].reset();

@@ -1,11 +1,19 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 
-    <title>jQuery plugin: Tablesorter 2.0</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
+    <!--<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>-->
+
+
+    <title>Toptal demo todo list</title>
+
+    {{#pageInfo.todolist_active}}
     <link rel="stylesheet" href="js/lib/tablesorter/docs/css/jq.css" type="text/css" media="print, projection, screen" />
 
     <link rel="stylesheet" href="js/lib/tablesorter/themes/blue/style.css" type="text/css" media="print, projection, screen" />
@@ -15,16 +23,37 @@
     <script type="text/javascript" src="js/lib/tablesorter/jquery.tablesorter.js"></script>
 
 
-    <!--<script type="text/javascript" src="js/chili/chili-1.8b.js"></script>-->
-
     <script type="text/javascript" src="js/lib/tablesorter/docs/js/docs.js"></script>
 
     <script type="text/javascript">
         $(function() {
-            $("#tablesorter-demo").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
-            $("#options").tablesorter({sortList: [[0,0]], headers: { 3:{sorter: false}, 4:{sorter: false}}});
+//            $("#tablesorter-demo").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
+//            $("#options").tablesorter({sortList: [[0,0]], headers: { 3:{sorter: false}, 4:{sorter: false}}});
+            $("#myTable").tablesorter( {sortList: [0,0]} );
         });
     </script>
+
+    {{/pageInfo.todolist_active}}
+
+    <!--<link rel="stylesheet" href="/resources/demos/style.css" />-->
+
+
+
+
+
+    <!--{{#pageInfo.addevent_active}}-->
+    <script>
+            $(function() {
+                $( "#datepicker" ).datepicker({
+                    showWeek: true,
+                    firstDay: 1,
+                    dateFormat: 'yy-mm-dd'
+                });
+            });
+
+    </script>
+    <!--{{/pageInfo.addevent_active}}-->
+
 
 
 
@@ -53,16 +82,21 @@
     <!--&lt;!&ndash;<script src="js/lib/jwplayer.html5.js"></script>&ndash;&gt;-->
 
     <!-- Cinsay JS Includes -->
-    <!--<script src="js/cinsay/init.js"></script>-->
-    <!--<script src="js/cinsay/logger.js"></script>-->
-    <!--<script src="js/cinsay/util.js"></script>-->
+    <script src="js/cinsay/init.js"></script>
+    <script src="js/cinsay/logger.js"></script>
+    <script src="js/cinsay/util.js"></script>
     <!--<script src="js/cinsay/ajax.js"></script>-->
-    <!--<script src="js/cinsay/fields.js"></script>-->
+    <script src="js/cinsay/fields.js"></script>
     <script src="js/cinsay/loadPartial.js"></script>
     <script src="js/cinsay/mustache.js"></script>
-    <!--<script src="js/cinsay/product.edit.js"></script>-->
+    <script src="js/cinsay/product.edit.js"></script>
     <!--<script src="js/cinsay/custom-ui.js"></script>-->
-    <!--<script src="js/cinsay/slidePane.js"></script>-->
-    <!--<script src="js/cinsay/addThisShare.js"></script>-->
+    <script src="js/cinsay/slidePane.js"></script>
+    <script src="js/cinsay/addThisShare.js"></script>
 
 </head>
+<body id="body">
+
+{{^blank}}
+{{> _common/navbar}}
+{{/blank}}

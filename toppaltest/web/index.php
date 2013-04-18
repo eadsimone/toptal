@@ -130,176 +130,27 @@ $app->get('/home(/)', $auth(),function () use ($app, $mustache) {
 
 });
 
-
-
-$app->get('/internal_api/:action/:object(/(:guid(/(:isRaw(/)))))',
-    function ($action, $object, $guid = null, $isRaw = false) use ($app, $mustache) {
-
-        if($isRaw != "raw") {
-            $isRaw = false;
-        } else {
-            $isRaw = true;
-        }
-
-        echo "action: " . $action . "<br>\n";
-        echo "object: " . $object . "<br>\n";
-        echo $object."Guid: " . $guid . "<br>\n";
-
-        echo "isRaw: " . $isRaw . "<br>\n";
-
-// 	$Object = "\\Fiji\\SbService\\".ucwords($object);
-// 	$sb = new $Object($action, null);
-// 	echo $app->json($sb->json);
-
-    });
-
-$app->get('/views/:folder/:file', function ($folder = null, $file = null) use ($app) {
-    echo file_get_contents("../src/views/" . $folder . "/" . $file);
-});
-
-$app->get('/video(_(:videoGuid(/)))', $auth(), function ($videoGuid = null) use ($app, $mustache) {
-    if($videoGuid == null) {
-        $app->redirect('players');
-    } else {
-        $page['title'] = __("Video");
-        $page['subhead'] = __("Edit Video: ") . $videoGuid;
-        $page['video_active'] = true;
-        $page['userEmail'] = $_SESSION['SSMData']['userEmail'];
-        echo $mustache->render('_common/header',array('pageInfo' => $page));
-        include '../src/views/video.php';
-        echo $mustache->render('_common/footer',array('pageInfo' => $page));
-    }
-});
-$app->get('/product(_(:productGuid(/)))', $auth(), function ($productGuid = null) use ($app, $mustache) {
-    if($productGuid == null) {
-        $app->redirect('players');
-    } else {
-        $page['title'] = __("Player");
-        $page['subhead'] = __("Edit Product: ") . $productGuid;
-        $page['product_active'] = true;
-        $page['userEmail'] = $_SESSION['SSMData']['userEmail'];
-        echo $mustache->render('_common/header',array('pageInfo' => $page));
-        include '../src/views/product.php';
-        //echo "playerGuid: " . $playerGuid;
-        echo $mustache->render('_common/footer',array('pageInfo' => $page));
-    }
-});
-
-
-
-
-
-$app->get('/player(_(:playerGuid(/)))', $auth(), function ($playerGuid = null) use ($app, $mustache) {
-    if($playerGuid == null) {
-        $app->redirect('players');
-    } else {
-//		$page['title'] = __("Players");
-//        $page['linktitle'] = "players";
-//		$page['subhead'] = __("Loading Player...");
-//		$page['players_active'] = true;
-//        $_SESSION['SSMData']['playerGuid']= $playerGuid;
-//        $page['userEmail'] = $_SESSION['SSMData']['userEmail'];
-        echo $mustache->render('_common/header',array('pageInfo' => $page));
-        include '../src/views/player.php';
-        //echo "playerGuid: " . $playerGuid;
-        echo $mustache->render('_common/footer',array('pageInfo' => $page));
-    }
-});
-
-
-
-$app->get('/players(/)', $auth(), function () use ($app, $mustache) {
+$app->get('/players', $auth(), function () use ($app, $mustache,$db) {
     $page['title'] = __("Events");
-
+    $page['todolist_active'] = true;
     echo $mustache->render('_common/header',array('pageInfo' => $page));
     include '../src/views/players.php';
     //echo $mustache->render('_common/footer',array('pageInfo' => $page));
 });
 
-
-
-$app->get('/account(/)', $auth(), function () use ($app, $mustache) {
-    $page['title'] = __("Account");
-    $page['linktitle'] = "account";
-    $page['subhead'] = __("Account Information");
-    $page['account_active'] = true;
-    $page['userEmail'] = $_SESSION['SSMData']['userEmail'];
+$app->get('/addevent', $auth(), function () use ($app, $mustache) {
+    $page['title'] = "AddEvents";
+    $page['addevent_active'] = true;
     echo $mustache->render('_common/header',array('pageInfo' => $page));
-    include '../src/views/account.php';
-    echo $mustache->render('_common/footer',array('pageInfo' => $page));
+    include '../src/views/addevent.php';
+    //echo $mustache->render('_common/footer',array('pageInfo' => $page));
 });
 
 
 
-$app->get('/reports(/)', $auth(), function () use ($app, $mustache) {
-    $page['title'] = __("Reports");
-    $page['report_active'] = true;
-    $page['userEmail'] = $_SESSION['SSMData']['userEmail'];
-    echo $mustache->render('_common/header',array('pageInfo' => $page)) . "\n";
-    require_once '../src/views/reports.php';
-    echo "\n" . $mustache->render('_common/footer',array('pageInfo' => $page));
-});
 
 
 
-$app->get('/orders(/)', $auth(), function () use ($app, $mustache) {
-    $page['title'] = __("Orders");
-    $page['orders_active'] = true;
-    $page['userEmail'] = $_SESSION['SSMData']['userEmail'];
-    echo $mustache->render('_common/header',array('pageInfo' => $page)) . "\n";
-    echo '<div class="main-content"><h2>Orders Page</h2>nothing to see here<br><br></div>';
-    echo "\n" . $mustache->render('_common/footer',array('pageInfo' => $page));
-});
-
-
-
-$app->get('/store_settings(/)', $auth(), function () use ($app, $mustache) {
-    $page['title'] = __("Store Settings");
-    $page['store_settings_active'] = true;
-    $page['userEmail'] = $_SESSION['SSMData']['userEmail'];
-    echo $mustache->render('_common/header',array('pageInfo' => $page)) . "\n";
-    require_once '../src/views/store.php';
-    echo "\n" . $mustache->render('_common/footer',array('pageInfo' => $page));
-});
-
-
-
-$app->get('/stats(/)', $auth(), function () use ($app, $mustache) {
-    $page['title'] = __("Stats");
-    $page['stats_active'] = true;
-    $page['userEmail'] = $_SESSION['SSMData']['userEmail'];
-    echo $mustache->render('_common/header',array('pageInfo' => $page)) . "\n";
-    require_once '../src/views/stats.php';
-    echo "\n" . $mustache->render('_common/footer',array('pageInfo' => $page));
-});
-
-
-
-$app->get('/home(/)', $auth(), function () use ($app, $mustache) {
-    $page['title'] = __("Home");
-    $page['home_active'] = true;
-    $page['userEmail'] = $_SESSION['SSMData']['userEmail'];
-    echo $mustache->render('_common/header',array('pageInfo' => $page)) . "\n";
-    require_once '../src/views/home.php';
-    echo "\n" . $mustache->render('_common/footer',array('pageInfo' => $page));
-})->name('home');
-
-
-
-$app->map('/formHandler(/(:formType))', function ($formType = null) use ($app) {
-    $handlers = array(
-        'savePlayerHandler','saveVideoHandler','saveProductHandler',
-        'saveClientInfoHandler','upgradePlanHandler','shareEmailHandler',
-        'loginHandler', 'passwordHandler'
-    );
-    if(!in_array($formType . "Handler", $handlers)) {
-        echo __("INVALID HANDLER . . redirecting");
-        //$app->redirect("../home");
-    } else {
-        //echo $formType . " handler";
-        include '../src/jsapiCalls/' . $formType . 'Handler.php';
-    }
-})->via('GET', 'POST');;
 
 /*----------------toppal***-----*/
 $app->get('/eventlist(/)', function () use ($app, $db) {
@@ -319,7 +170,6 @@ $app->get('/eventlist(/)', function () use ($app, $db) {
 });
 
 
-
 $app->get('/', function () use ($app) {
     $app->redirect("home");
 });
@@ -333,38 +183,6 @@ $app->notFound(function () use ($app, $mustache) {
     include '../src/views/filenotfound.php';
     echo "\n" . $mustache->render('_common/footer',array('pageInfo' => $page));
 });
-
-
-
-
-$app->get('/buzz', function () use ($app) {
-    $startTime = time();
-
-    $url = "http://services.int.cinsay.com/api/cms/players/get";
-    $orig_data = '{"apiKey":"cinsay99Public","clientId":"7973","requestObject":null,"params":null}';
-
-    $data = encodeForServiceBus($orig_data, "cinsay99Private");
-
-    $config = getAppConfig();
-    $httpclient = $config['httpclient'];
-    $response = $httpclient->post($url, array('Content-type: application/json; charset=UTF-8'), $data);
-
-    echo "<pre>" . prettyJSON($response->getContent()) . "</pre>\n";
-
-    echo "\n" . time() - $startTime . " seconds";
-});
-
-
-$app->get('/servicebuslog', $auth(), function () use ($app, $mustache) {
-    $page['title'] = __("Service Bus Log");
-    $page['userEmail'] = $_SESSION['SSMData']['userEmail'];
-
-    echo $mustache->render('_common/header',array('pageInfo' => $page, 'blank' => true)) . "\n";
-    include '../src/views/servicebuslog.php';
-    echo "\n" . $mustache->render('_common/footer',array('pageInfo' => $page));
-});
-
-
 /*for new analytics dashboard */
 
 
@@ -384,108 +202,7 @@ $app->get('/', function() use ($app) {
     $app->redirect('/summary/');
 });
 
-$app->get('(/:lang)/summary/', function ($lang = null) use ($app, $localeLoockup) {
-    if ($lang === null) {
-        $lang = getenv('CINSAY_DEFAULT_LANG');
-        if (gettype($lang) !== 'string') {
-            $lang = 'en';
-        }
-    }
 
-    if (array_key_exists($lang, $localeLoockup)) {
-        $locale = $localeLoockup[$lang];
-
-        $app->render('dashboard.php', array(
-            'currentLocale' => $locale,
-            'translator' => new \Localization\Translator($locale),
-            'currency' => new \Localization\Currency($locale),
-            'serviceBus' => new \ServiceBus\ServiceBus(),
-            'currentTab' => 'summary',
-            'tooltipsEnabled' => getenv('CINSAY_TOOLTIPS') === 'on'
-        ));
-    } else {
-        $app->notFound();
-    }
-});
-
-$app->get('(/:lang)/attract/', function ($lang = null) use ($app, $localeLoockup) {
-    if ($lang === null) {
-        $lang = getenv('CINSAY_DEFAULT_LANG');
-        if (gettype($lang) !== 'string') {
-            $lang = 'en';
-        }
-    }
-
-    if (array_key_exists($lang, $localeLoockup)) {
-        $locale = $localeLoockup[$lang];
-
-        $app->render('dashboard.php', array(
-            'currentLocale' => $locale,
-            'translator' => new \Localization\Translator($locale),
-            'currency' => new \Localization\Currency($locale),
-            'serviceBus' => new \ServiceBus\ServiceBus(),
-            'currentTab' => 'attract',
-            'tooltipsEnabled' => getenv('CINSAY_TOOLTIPS') === 'on'
-        ));
-    } else {
-        $app->notFound();
-    }
-});
-
-$app->get('(/:lang)/interact/', function ($lang = null) use ($app, $localeLoockup) {
-    if ($lang === null) {
-        $lang = getenv('CINSAY_DEFAULT_LANG');
-        if (gettype($lang) !== 'string') {
-            $lang = 'en';
-        }
-    }
-
-    if (array_key_exists($lang, $localeLoockup)) {
-        $locale = $localeLoockup[$lang];
-
-        $app->render('dashboard.php', array(
-            'currentLocale' => $locale,
-            'translator' => new \Localization\Translator($locale),
-            'currency' => new \Localization\Currency($locale),
-            'serviceBus' => new \ServiceBus\ServiceBus(),
-            'currentTab' => 'interact',
-            'tooltipsEnabled' => getenv('CINSAY_TOOLTIPS') === 'on'
-        ));
-    } else {
-        $app->notFound();
-    }
-});
-
-$app->get('(/:lang)/transact/', function ($lang = null) use ($app, $localeLoockup) {
-    if ($lang === null) {
-        $lang = getenv('CINSAY_DEFAULT_LANG');
-        if (gettype($lang) !== 'string') {
-            $lang = 'en';
-        }
-    }
-
-    if (array_key_exists($lang, $localeLoockup)) {
-        $locale = $localeLoockup[$lang];
-
-        $app->render('dashboard.php', array(
-            'currentLocale' => $locale,
-            'translator' => new \Localization\Translator($locale),
-            'currency' => new \Localization\Currency($locale),
-            'serviceBus' => new \ServiceBus\ServiceBus(),
-            'currentTab' => 'transact',
-            'tooltipsEnabled' => getenv('CINSAY_TOOLTIPS') === 'on'
-        ));
-    } else {
-        $app->notFound();
-    }
-});
-
-/*** Routes for services ******************************************************/
-
-$app->get('/api/tab/:tab/players/:players/from/:from/to/:to/', function ($tab, $players, $from, $to) {
-    $serviceBus = new \ServiceBus\ServiceBus();
-    echo $serviceBus->getAnalyticsData($tab, $players, $from, $to);
-});
 
 /*** Error handlers ***********************************************************/
 
