@@ -35,10 +35,16 @@
 ?>
 
 <script type="text/javascript">
-    function saveNewPlayer() {
+    function saveNewPlayer(id) {
         //alert('saveNewPlayer');
-        toyin = $.ajax({
-            url:"http://local.toppaltest.com/web/eventadd",
+        if(id==null){
+            var link='http://local.toppaltest.com/web/eventadd'
+            }else{
+            var link='http://local.toppaltest.com/web/eventupdate/'+id
+        }
+
+        $.ajax({
+            url:link,
             type: "post",
             data:$("#saveNewPlayerForm").serialize()
         }).done(function(responseText){

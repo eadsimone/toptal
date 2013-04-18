@@ -94,12 +94,12 @@ $app->post("/eventadd", function () use($app, $db) {
     echo json_encode(array("id" => $result["id"]));
 });
 
-$app->put("/eventupdate/:id", function ($id) use ($app, $db) {
+$app->post("/eventupdate/:id", function ($id) use ($app, $db) {
     $app->response()->header("Content-Type", "application/json");
-    $book = $db->books()->where("id", $id);
-    if ($book->fetch()) {
+    $event = $db->todolist()->where("id", $id);
+    if ($event->fetch()) {
         $post = $app->request()->put();
-        $result = $book->update($post);
+        $result = $event->update($post);
         echo json_encode(array(
             "status" => (bool)$result,
             "message" => "Book updated successfully"
@@ -120,13 +120,13 @@ $app->get('/deleteevent/:id',$auth(), function ($id) use($app, $db) {
         $result = $event->delete();
         echo json_encode(array(
             "status" => true,
-            "message" => "Book deleted successfully"
+            "message" => "Event deleted successfully"
         ));
     }
     else{
         echo json_encode(array(
             "status" => false,
-            "message" => "Book id $id does not exist"
+            "message" => "Event id $id does not exist"
         ));
     }
 });
@@ -139,7 +139,7 @@ $app->get('/home(/)', $auth(),function () use ($app, $mustache) {
 //   // echo $mustache->render('events/index',array('pageInfo' => $page));
 //    //include '../src/views/account.php';
 //    echo "\n" . $mustache->render('_common/footer',array('pageInfo' => $page));
-
+    $app->redirect('players');
     $page['title'] = "Home";
     $page['home_active'] = true;
     echo $mustache->render('_common/header',array('pageInfo' => $page)) . "\n";
@@ -164,7 +164,13 @@ $app->get('/addevent', $auth(), function () use ($app, $mustache) {
     //echo $mustache->render('_common/footer',array('pageInfo' => $page));
 });
 
-
+$app->get('/addevent(_(:id(/)))', $auth(), function ($id = null) use ($app, $mustache,$db) {
+        $page['title'] = "AddEvents";
+        $page['addevent_active'] = true;
+        echo $mustache->render('_common/header',array('pageInfo' => $page));
+        include '../src/views/addevent.php';
+        //echo $mustache->render('_common/footer',array('pageInfo' => $page));
+    });
 
 
 
