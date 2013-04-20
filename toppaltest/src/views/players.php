@@ -67,32 +67,50 @@
             //alert('you pressed OK to delete ' + playerGuid);
 
             $.ajax({
-                url: 'http://local.toppaltest.com/web/deleteevent/' + id
+                url: 'http://local.toppaltest.com/web/deleteevent/' + id,
+                success: function(msg) {
+
+                        alert("hi");
+                        $('#'+id).parent().parent().remove();
+
+
+                }
             } )
-                    .done( function( response ) {
 
-                        if(response.responseCode == 1000) {
 
-                            var itemToDelete = $('#player_list_item_' + playerGuid);
-                            itemToDelete.fadeOut(300, function() {
-                                itemToDelete.remove();
-                            });
-
-                            noticeText=response.responseText;
-                            setSuccessNotice(noticeText);
-
-                            // Log successful response to console (wrapper handles/logs failures). Todo: Remove this.
-                            C.ssm.log( "Deleted player: " + playerGuid + ". Response:", response );
-
-                            // Redirect Page
-                            //window.location.href( 'account' );
-
-                        }else{
-                            noticeText=response.responseText;
-                            setErrorNotice(noticeText);
-                        }
-
-                    } );
+//                .done(function() { alert("success"); })
+//                .fail(function() { alert("error"); })
+//                .always(function() { alert("complete"); });
+//                .done( function(status) {
+//
+////                        if(response.responseCode == 1000) {
+//
+//
+//                            $("#myTable").on("click", "#delete", function() {
+//                                alert('vino');
+////                                $(this).closest("tr").remove();
+//                            });
+//
+//                            var itemToDelete = $('#player_list_item_' + playerGuid);
+//                            itemToDelete.fadeOut(300, function() {
+//                                itemToDelete.remove();
+//                            });
+//
+//                            noticeText=response.responseText;
+//                            setSuccessNotice(noticeText);
+//
+//                            // Log successful response to console (wrapper handles/logs failures). Todo: Remove this.
+//                            C.ssm.log( "Deleted player: " + playerGuid + ". Response:", response );
+//
+//                            // Redirect Page
+//                            //window.location.href( 'account' );
+//
+////                        }else{
+////                            noticeText=response.responseText;
+////                            setErrorNotice(noticeText);
+////                        }
+//
+//                    } );
 
         } else {
             //do nothing

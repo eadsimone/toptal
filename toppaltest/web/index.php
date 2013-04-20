@@ -91,7 +91,14 @@ $app->post("/eventadd", function () use($app, $db) {
     $app->response()->header("Content-Type", "application/json");
     $event = $app->request()->post();
     $result = $db->todolist->insert($event);
-    echo json_encode(array("id" => $result["id"]));
+    echo json_encode(array(
+        "id" => $event["id"],
+        "name" => $event["name"],
+        "date" => $event["date"],
+        "priority" => $event["priority"],
+        "status" => $event["status"],
+        "description" => $event["description"]
+    ));
 });
 
 $app->post("/eventupdate/:id", function ($id) use ($app, $db) {

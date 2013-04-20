@@ -1,12 +1,7 @@
 <h1>Demo</h1>
 
 <div class="ssm-media-list-add clearfix">
-    <a href="addevent" class="btn btn-large open-pane"
-       data-json="GetProduct.json"
-       data-template="video/edit.html"
-       data-id="sliding-content"
-       data-callback="saveButtons.newProduct();"
-            >{{#i18n}}+ add new{{/i18n}}</a>
+    <button class="btn btn-large open-pane" id="create-event">+ add new</button>
 </div>
 <table id="myTable" class="tablesorter" border="0" cellpadding="0" cellspacing="1">
     <thead>
@@ -30,10 +25,76 @@
         <td>{{status}}</td>
         <td>{{description}}</td>
         <td>
-            <a class="btn" href="addevent_{{id}}"><i class="icon-pencil"></i> {{#i18n}}Edit{{/i18n}}</a>
-            <a class="btn" href="#" onclick="deletePlayer('{{id}}', '{{name}}')"><i class="icon-remove"></i> {{#i18n}}Delete{{/i18n}}</a>
+            <a class="btn addevent_{{id}}" id="edit-event" onclick="saveNewPlayer('{{id}}');"  href="#"><i class="icon-pencil"></i>Edit</a>
+            <a class="btn" id="{{id}}"  href="#" onclick="deletePlayer('{{id}}', '{{name}}')"><i class="icon-remove"></i>Delete</a>
     </tr>
     {{/allPlayers}}
+
+    <div id="dialog-form" title="Create new Event">
+        <form class="form-horizontal" id="saveNewPlayerForm" method="post" style="clear:both;float;left;">
+            <!--<input type="hidden" name="_METHOD" value="PUT">-->
+            <div class="control-group">
+                <label class="control-label" for="name">Name</label>
+                <div class="controls">
+                    <input type="text" class="input-block-level" id="name" value="{{name}}" name="name" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="datepicker">Date:</label>
+                <div class="controls">
+                    <input type="text" id="datepicker" name="date" value="{{date}}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="priority">Priority</label>
+                <div class="controls">
+                    <input type="text" class="input-block-level" id="priority" name="priority" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50" value="{{priority}}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="status">Status</label>
+                <div class="controls">
+                    <input type="text" class="input-block-level" id="status" name="status" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50" value="{{status}}">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="description">{{#i18n}}Description{{/i18n}}</label>
+                <div class="controls">
+                    <textarea placeholder="{{#i18n}}Player Description{{/i18n}}" maxlength="255" rows="4" class="input-block-level" id="description" name="description">{{description}}</textarea>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <button type="button" class="btn btn-success" id="saveNewPlayerButton" onclick="saveNewPlayer({{id}});">{{#i18n}}Save{{/i18n}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!--<div id="users-contain" class="ui-widget">-->
+        <!--<h1>Existing Users:</h1>-->
+        <!--<table id="users" class="ui-widget ui-widget-content">-->
+            <!--<thead>-->
+            <!--<tr class="ui-widget-header ">-->
+                <!--<th>Name</th>-->
+                <!--<th>Email</th>-->
+                <!--<th>Password</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr>-->
+                <!--<td>John Doe</td>-->
+                <!--<td>john.doe@example.com</td>-->
+                <!--<td>johndoe1</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;<button id="create-user">Create new user</button>&ndash;&gt;-->
+
     </tbody>
 </table>
 </body>
