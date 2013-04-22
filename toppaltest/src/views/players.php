@@ -1,5 +1,5 @@
 
-<div id="main">
+<div id="main"?>
 
 <?php
 
@@ -30,37 +30,233 @@
 ?>
 
 <script type="text/javascript">
-    function saveNewPlayer() {
-        //alert('saveNewPlayer');
-        toyin = $.ajax({
-            url:"../src/jsapiCalls/saveNewPlayer.php",
-            data:$("form#saveNewPlayerForm").serialize()
-        }).done(function(responseText){
-                    if(responseText.responseCode == 1000) {
-                        $("form#saveNewPlayerForm")[0].reset();
 
-                        noticeText=responseText.responseText;
-                        setSuccessNotice(noticeText);
+function saveNewEvent() {
 
-                        //window.location.href="players";
-                        C.ssm.loadPartial.helper( {
-                            url: 'getPlayerList.php',
-                            template: 'players/index.html',
-                            elementId: 'home'
-                        } );
-
-                        $('.tab-nav-a[href="#home"]').trigger('click');
+    var id = $( "#id" ),
+        name = $( "#name" ),
+        date = $( "#datepicker" ),
+        priority = $( "#priority" ),
+        status =$( "#status" ),
+        description = $( "#description");
 
 
-                    }else{
-                        noticeText=responseText.responseText;
-                        setErrorNotice(noticeText);
-                    }
-                });
-        console.log($(toyin));
-    }
+//    if(id==null){
+        var link='http://local.toppaltest.com/web/eventadd'
+//    }else{
+//        var link='http://local.toppaltest.com/web/eventupdate/'+id
+//    }
 
-    function deletePlayer(id, Name) {
+    var peche= $.ajax({
+        url:link,
+        type: "POST",
+        data:$("#saveNewPlayerForm").serialize(),
+        success: function(responseText) {
+            var data=responseText.responseObject;
+
+            var edit='<a class="btn addevent_{{id}}" id="edit-event" onclick="editEvent(\''+data.id+'\');"  href="#"><i class="icon-pencil"></i>Edit</a>';
+            var del='<a class="btn" id="'+data.id+'"  href="#" onclick="deleteEvent(\''+data.id+'\',\''+data.name+'\')"><i class="icon-remove"></i>Delete</a>';
+//        <a class="btn addevent_{{id}}" id="edit-event" onclick="editEvent('{{id}}');"  href="#"><i class="icon-pencil"></i>Edit</a>
+//        <a class="btn" id="{{id}}"  href="#" onclick="deletePlayer('{{id}}', '{{name}}')"><i class="icon-remove"></i>Delete</a>
+
+
+
+
+            // if ( bValid ) {
+            $( "#myTable tbody" ).append( "<tr>" +
+                "<td>" + data.id + "</td>" +
+                "<td>" + data.name + "</td>" +
+                "<td>" + data.date + "</td>" +
+                "<td>" + data.priority + "</td>" +
+                "<td>" + data.status + "</td>" +
+                "<td>" + data.description + "</td>" +
+                "<td>" + edit + del + "</td>" +
+                "</tr>" );
+
+
+//
+////            alert(responseText.responseCode);
+        }
+
+
+    })
+.done(function(responseText){
+            if(responseText.responseCode == 1000) {
+//                $("form#saveNewPlayerForm")[0].reset();
+//
+//                noticeText=responseText.responseText;
+//                setSuccessNotice(noticeText);
+//
+//                //window.location.href="players";
+//                C.ssm.loadPartial.helper( {
+//                    url: 'getPlayerList.php',
+//                    template: 'players/index.html',
+//                    elementId: 'home'
+//                } );
+//
+//                $('.tab-nav-a[href="#home"]').trigger('click');
+alert('event succesful');
+
+            }else{
+//                noticeText=responseText.responseText;
+//                setErrorNotice(noticeText);
+                alert('event can not created');
+            }
+        });
+    console.log($(peche));
+}
+
+//function saveEvent(id) {
+function saveEvent(id) {
+
+
+   /* var id = $( "#id" ),
+        name = $( "#name" ),
+        date = $( "#datepicker" ),
+        priority = $( "#priority" ),
+        status =$( "#status" ),
+        description = $( "#description");
+        */
+
+        var link='http://local.toppaltest.com/web/eventupdate/'+id
+
+
+    var peche= $.ajax({
+        url:link,
+        type: "POST",
+        data:$("#saveNewPlayerForm").serialize(),
+        success: function(responseText) {
+//            var data=responseText.responseObject;
+//
+//            var edit='<a class="btn addevent_{{id}}" id="edit-event" onclick="editEvent('+data.id+');"  href="#"><i class="icon-pencil"></i>Edit</a>';
+//            var del='<a class="btn" id="'+id+'"  href="#" onclick="deletePlayer('+data.id+', '+data.name+')"><i class="icon-remove"></i>Delete</a>';
+//
+//            $('#'+id).parent().parent().remove();
+//
+//            // if ( bValid ) {
+//            $( "#myTable tbody" ).append( "<tr>" +
+//                "<td>" + data.id + "</td>" +
+//                "<td>" + data.name + "</td>" +
+//                "<td>" + data.date + "</td>" +
+//                "<td>" + data.priority + "</td>" +
+//                "<td>" + data.status + "</td>" +
+//                "<td>" + data.description + "</td>" +
+//                "<td>" + edit + del + "</td>" +
+//                "</tr>" );
+        }
+
+
+    })
+        .done(function(responseText){
+            if(responseText.responseCode == 1000) {
+
+                var data=responseText.responseObject;
+
+                var edit='<a class="btn addevent_{{id}}" id="edit-event" onclick="editEvent(\''+data.id+'\');"  href="#"><i class="icon-pencil"></i>Edit</a>';
+                var del='<a class="btn" id="'+id+'"  href="#" onclick="deleteEvent(\''+data.id+'\',\''+data.name+'\')"><i class="icon-remove"></i>Delete</a>';
+
+                $('#'+id).parent().parent().remove();
+
+                // if ( bValid ) {
+                $( "#myTable tbody" ).append( "<tr>" +
+                    "<td>" + data.id + "</td>" +
+                    "<td>" + data.name + "</td>" +
+                    "<td>" + data.date + "</td>" +
+                    "<td>" + data.priority + "</td>" +
+                    "<td>" + data.status + "</td>" +
+                    "<td>" + data.description + "</td>" +
+                    "<td>" + edit + del + "</td>" +
+                    "</tr>" );
+
+//                $("form#saveNewPlayerForm")[0].reset();
+//
+//                noticeText=responseText.responseText;
+//                setSuccessNotice(noticeText);
+//
+//                //window.location.href="players";
+//                C.ssm.loadPartial.helper( {
+//                    url: 'getPlayerList.php',
+//                    template: 'players/index.html',
+//                    elementId: 'home'
+//                } );
+//
+//                $('.tab-nav-a[href="#home"]').trigger('click');
+                alert('event update succesful');
+
+            }else{
+//                noticeText=responseText.responseText;
+//                setErrorNotice(noticeText);
+                alert('event can not saved');
+            }
+        });
+    console.log($(peche));
+}
+
+
+function editEvent(id) {
+
+    $("#dialog-form").dialog("open").data("opener",id);
+
+    $( "#dialog-form" ).dialog( "open" );
+
+    var link='http://local.toppaltest.com/web/event/'+id
+
+
+    var peche=$.ajax({
+        url:link,
+//      data:$("#saveNewPlayerForm").serialize()
+        success: function(responseText) {
+            var data=responseText.responseObject;
+
+//            $( "#name" ).val(data.id);
+            $( "#name" ).val(data.name);
+            $( "#datepicker" ).val(data.date);
+            $( "#priority" ).val(data.priority);
+            $( "#status" ).val(data.status);
+            $( "#description" ).val(data.description);
+//
+////            alert(responseText.responseCode);
+        },
+        error: function(request, status, error) {
+            alert(status);
+        }
+
+
+    }).done(function(responseText){
+            if(responseText.responseCode == 1000) {
+
+                var data=responseText.responseObject;
+
+//            $( "#name" ).val(data.id);
+                $( "#name" ).val(data.name);
+                $( "#datepicker" ).val(data.date);
+                $( "#priority" ).val(data.priority);
+                $( "#status" ).val(data.status);
+                $( "#description" ).val(data.description);
+
+                //noticeText=responseText.responseText;
+                //setSuccessNotice(noticeText);
+
+                //window.location.href="players";
+//                C.ssm.loadPartial.helper( {
+//                    url: 'getPlayerList.php',
+//                    template: 'players/index.html',
+//                    elementId: 'home'
+//                } );
+
+                $('.tab-nav-a[href="#home"]').trigger('click');
+
+
+            }else{
+                //noticeText=responseText.responseText;
+                // setErrorNotice(noticeText);
+            }
+        });
+    console.log($(peche));
+}
+
+
+function deleteEvent(id, Name) {
         var doDelete = confirm("Are you sure you want to delete '" + Name + "'?");
         if(doDelete == true) {
 
@@ -72,6 +268,13 @@
 
                         alert("hi");
                         $('#'+id).parent().parent().remove();
+
+
+                    var usersTable = $(".tablesorter");
+                    usersTable.trigger("update")
+                        .trigger("sorton", [usersTable.get(0).config.sortList])
+                        .trigger("appendCache")
+                        .trigger("applyWidgets");
 
 
                 }

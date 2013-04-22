@@ -1,5 +1,5 @@
 /* Stop IE flicker */
-if ($.browser.msie == true) document.execCommand('BackgroundImageCache', false, true);
+//if ($.browser.msie == true) document.execCommand('BackgroundImageCache', false, true);
 ChiliBook.recipeFolder     = "js/chili/";
 ChiliBook.stylesheetFolder = "js/chili/"
 

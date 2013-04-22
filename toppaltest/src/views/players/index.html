@@ -25,8 +25,8 @@
         <td>{{status}}</td>
         <td>{{description}}</td>
         <td>
-            <a class="btn addevent_{{id}}" id="edit-event" onclick="saveNewPlayer('{{id}}');"  href="#"><i class="icon-pencil"></i>Edit</a>
-            <a class="btn" id="{{id}}"  href="#" onclick="deletePlayer('{{id}}', '{{name}}')"><i class="icon-remove"></i>Delete</a>
+            <a class="btn addevent_{{id}}" id="edit-event" onclick="editEvent('{{id}}');"  href="#"><i class="icon-pencil"></i>Edit</a>
+            <a class="btn" id="{{id}}"  href="#" onclick="deleteEvent('{{id}}', '{{name}}')"><i class="icon-remove"></i>Delete</a>
     </tr>
     {{/allPlayers}}
 
@@ -36,7 +36,7 @@
             <div class="control-group">
                 <label class="control-label" for="name">Name</label>
                 <div class="controls">
-                    <input type="text" class="input-block-level" id="name" value="{{name}}" name="name" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50">
+                    <input type="text" class="input-block-level" id="name" value="{{name}}" name="name" placeholder="" maxlength="50">
                 </div>
             </div>
             <div class="control-group">
@@ -48,53 +48,30 @@
             <div class="control-group">
                 <label class="control-label" for="priority">Priority</label>
                 <div class="controls">
-                    <input type="text" class="input-block-level" id="priority" name="priority" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50" value="{{priority}}">
+                    <input type="text" class="input-block-level" id="priority" name="priority" placeholder="" maxlength="50" value="{{priority}}">
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="status">Status</label>
                 <div class="controls">
-                    <input type="text" class="input-block-level" id="status" name="status" placeholder="{{#i18n}}Player Name{{/i18n}}" maxlength="50" value="{{status}}">
+                    <input type="text" class="input-block-level" id="status" name="status" placeholder="" maxlength="50" value="{{status}}">
                 </div>
             </div>
 
             <div class="control-group">
-                <label class="control-label" for="description">{{#i18n}}Description{{/i18n}}</label>
+                <label class="control-label" for="description">Description</label>
                 <div class="controls">
-                    <textarea placeholder="{{#i18n}}Player Description{{/i18n}}" maxlength="255" rows="4" class="input-block-level" id="description" name="description">{{description}}</textarea>
+                    <textarea placeholder="Event Description" maxlength="255" rows="4" class="input-block-level" id="description" name="description">{{description}}</textarea>
                 </div>
             </div>
 
-            <div class="control-group">
-                <div class="controls">
-                    <button type="button" class="btn btn-success" id="saveNewPlayerButton" onclick="saveNewPlayer({{id}});">{{#i18n}}Save{{/i18n}}</button>
-                </div>
-            </div>
+            <!--<div class="control-group">-->
+                <!--<div class="controls">-->
+                    <!--<button type="button" class="btn btn-success" id="saveNewPlayerButton" onclick="saveNewPlayer({{id}});">Save</button>-->
+                <!--</div>-->
+            <!--</div>-->
         </form>
     </div>
-
-
-    <!--<div id="users-contain" class="ui-widget">-->
-        <!--<h1>Existing Users:</h1>-->
-        <!--<table id="users" class="ui-widget ui-widget-content">-->
-            <!--<thead>-->
-            <!--<tr class="ui-widget-header ">-->
-                <!--<th>Name</th>-->
-                <!--<th>Email</th>-->
-                <!--<th>Password</th>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr>-->
-                <!--<td>John Doe</td>-->
-                <!--<td>john.doe@example.com</td>-->
-                <!--<td>johndoe1</td>-->
-            <!--</tr>-->
-            <!--</tbody>-->
-        <!--</table>-->
-    <!--</div>-->
-    <!--&lt;!&ndash;<button id="create-user">Create new user</button>&ndash;&gt;-->
-
     </tbody>
 </table>
 </body>
