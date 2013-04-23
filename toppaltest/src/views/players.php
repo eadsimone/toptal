@@ -42,7 +42,8 @@ function saveNewEvent() {
 
 
 //    if(id==null){
-        var link='http://local.toppaltest.com/web/eventadd'
+        //var link='http://local.toppaltest.com/web/eventadd'
+        var link='eventadd'
 //    }else{
 //        var link='http://local.toppaltest.com/web/eventupdate/'+id
 //    }
@@ -118,7 +119,7 @@ function saveEvent(id) {
         description = $( "#description");
         */
 
-        var link='http://local.toppaltest.com/web/eventupdate/'+id
+        var link='eventupdate/'+id
 
 
     var peche= $.ajax({
@@ -157,6 +158,17 @@ function saveEvent(id) {
 
                 $('#'+id).parent().parent().remove();
 
+
+                /*-----*/
+//                var usersTable = $("#tablesorter");
+//                usersTable.trigger("update")
+////                        .trigger("sorton", [usersTable.get(0).config.sortList])
+//                    .trigger("sorton",[[0,0]])
+//                    .trigger("appendCache")
+//                    .trigger("applyWidgets");
+
+                /*----*/
+
                 // if ( bValid ) {
                 $( "#myTable tbody" ).append( "<tr>" +
                     "<td>" + data.id + "</td>" +
@@ -167,6 +179,16 @@ function saveEvent(id) {
                     "<td>" + data.description + "</td>" +
                     "<td>" + edit + del + "</td>" +
                     "</tr>" );
+
+
+                var usersTable = $(".tablesorter");
+                usersTable.trigger("update")
+//                        .trigger("sorton", [usersTable.get(0).config.sortList])
+                    .trigger("sorton",[[0,0]])
+                    .trigger("appendCache")
+                    .trigger("applyWidgets");
+
+
 
 //                $("form#saveNewPlayerForm")[0].reset();
 //
@@ -181,12 +203,16 @@ function saveEvent(id) {
 //                } );
 //
 //                $('.tab-nav-a[href="#home"]').trigger('click');
-                alert('event update succesful');
+                alert('Event update successful');
+                $("#tablesorter").trigger("update")
+                    .trigger("sorton",[[0,0]])
+                    .trigger("appendCache")
+                    .trigger("applyWidgets");
 
             }else{
 //                noticeText=responseText.responseText;
 //                setErrorNotice(noticeText);
-                alert('event can not saved');
+                alert('Event can not saved');
             }
         });
     console.log($(peche));
@@ -199,7 +225,7 @@ function editEvent(id) {
 
     $( "#dialog-form" ).dialog( "open" );
 
-    var link='http://local.toppaltest.com/web/event/'+id
+    var link='event/'+id
 
 
     var peche=$.ajax({
@@ -263,16 +289,31 @@ function deleteEvent(id, Name) {
             //alert('you pressed OK to delete ' + playerGuid);
 
             $.ajax({
-                url: 'http://local.toppaltest.com/web/deleteevent/' + id,
+                url: 'deleteevent/' + id,
+//                url: 'http://local.toppaltest.com/web/deleteevent/' + id,
                 success: function(msg) {
 
-                        alert("hi");
+//                        alert("hi");
                         $('#'+id).parent().parent().remove();
+
+
+
+
+//                    $("#tablesorter").tablesorter({widthFixed: true}).tablesorterPager({container: $("#pager")});
+//                    $("#tablesorter").trigger("update")
+
+//                    var usersTable = $("#tablesorter");
+//                    usersTable.trigger("update")
+////                        .trigger("sorton", [usersTable.get(0).config.sortList])
+//                          .trigger("sorton",[[0,0]])
+//                        .trigger("appendCache")
+//                        .trigger("applyWidgets");
 
 
                     var usersTable = $(".tablesorter");
                     usersTable.trigger("update")
-                        .trigger("sorton", [usersTable.get(0).config.sortList])
+//                        .trigger("sorton", [usersTable.get(0).config.sortList])
+                        .trigger("sorton",[[0,0]])
                         .trigger("appendCache")
                         .trigger("applyWidgets");
 

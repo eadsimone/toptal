@@ -1,8 +1,13 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+//require_once __DIR__.'/../vendor/autoload.php';
+//
+//require_once __DIR__ . '/../NotORM/NotORM.php';
 
-require_once __DIR__ . '/../NotORM/NotORM.php';
+
+require_once '../vendor/autoload.php';
+
+require_once '../NotORM/NotORM.php';
 
 //SLIM
 $app = new Slim\Slim();
@@ -39,6 +44,16 @@ $dsn="mysql:host=localhost;dbname=toppaltest";
 //$dsn="dbname=toppaltest";
 $username="root";
 $password="admin";
+
+//for server
+//eadesimone.domaincommysql.com', 'usertoptal', 'usert0p');;
+//$dsn="mysql:host=eadesimone.domaincommysql.com;dbname=toppaltest";
+////$dsn="dbname=toppaltest";
+//$username="usertoptal";
+//$password="usert0p";
+
+
+
 $pdo = new PDO($dsn, $username, $password);
 
 $db = new NotORM($pdo);
